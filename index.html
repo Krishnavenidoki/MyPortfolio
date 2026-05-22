@@ -1,0 +1,1310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Krishnaveni Doki | Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,700;0,800;1,500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #FFFFFF;
+      --bg-alt: #F8FAFC;
+      --text: #1E293B;
+      --muted: #64748B;
+      --accent: #4F46E5;
+      --accent2: #7C3AED;
+      --accent-lt: #EEF2FF;
+      --border: #E2E8F0;
+      --sh: 0 1px 3px rgba(0,0,0,.06),0 4px 16px rgba(0,0,0,.06);
+      --sh-lg: 0 4px 6px rgba(0,0,0,.05),0 10px 40px rgba(0,0,0,.10);
+      --r: 14px;
+      --nav: 68px;
+    }
+
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', sans-serif; color: var(--text); background: var(--bg); overflow-x: hidden; }
+
+    /* NAV */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; height: var(--nav);
+      z-index: 200; background: rgba(255,255,255,.90);
+      backdrop-filter: blur(18px); border-bottom: 1px solid var(--border);
+    }
+    .nav-in {
+      max-width: 1200px; margin: 0 auto; padding: 0 2rem;
+      height: 100%; display: flex; align-items: center; justify-content: space-between;
+    }
+    .nav-logo {
+      font-family: 'Playfair Display', serif; font-weight: 800; font-size: 1.4rem;
+      color: var(--text); text-decoration: none; letter-spacing: -.5px;
+    }
+    .nav-links { display: flex; list-style: none; gap: 1.75rem; align-items: center; }
+    .nav-links a {
+      text-decoration: none; color: var(--muted); font-size: .875rem;
+      font-weight: 500; transition: color .2s;
+    }
+    .nav-links a:hover, .nav-links a.active { color: var(--accent); }
+    .nav-cta {
+      background: var(--accent) !important; color: #fff !important;
+      padding: .45rem 1.2rem; border-radius: 50px;
+      font-size: .8125rem !important; font-weight: 600 !important;
+    }
+    .nav-cta:hover { background: var(--accent2) !important; }
+    .ham { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; }
+    .ham span { display: block; width: 24px; height: 2px; background: var(--text); border-radius: 2px; transition: all .3s; }
+
+    /* SHARED */
+    section { padding: 5rem 2rem; }
+    .wrap { max-width: 1200px; margin: 0 auto; }
+    .label { font-size: .72rem; font-weight: 700; letter-spacing: .15em; text-transform: uppercase; color: var(--accent); margin-bottom: .75rem; }
+    .sh {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem,4vw,2.75rem); font-weight: 800;
+      color: var(--text); line-height: 1.15; margin-bottom: 1rem;
+    }
+    .sub { font-size: 1.0625rem; color: var(--muted); line-height: 1.75; max-width: 600px; }
+    .sec-hd { margin-bottom: 3.5rem; }
+    .sec-hd.c { text-align: center; }
+    .sec-hd.c .sub { margin: 0 auto; }
+
+    .fi { opacity: 0; transform: translateY(24px); transition: opacity .65s ease, transform .65s ease; }
+    .fi.v { opacity: 1; transform: none; }
+    .d1{transition-delay:.10s} .d2{transition-delay:.20s}
+    .d3{transition-delay:.30s} .d4{transition-delay:.40s}
+
+    .btn {
+      display: inline-flex; align-items: center; gap: .5rem;
+      padding: .85rem 1.9rem; border-radius: 50px; font-weight: 600;
+      font-size: .9375rem; text-decoration: none; transition: all .2s; border: none; cursor: pointer;
+    }
+    .btn-p { background: var(--accent); color: #fff; }
+    .btn-p:hover { background: var(--accent2); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(79,70,229,.35); }
+    .btn-s { background: #fff; color: var(--text); border: 1.5px solid var(--border); }
+    .btn-s:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-2px); box-shadow: var(--sh); }
+
+    /* HERO */
+    #hero {
+      min-height: 100vh; display: flex; align-items: center;
+      padding-top: calc(var(--nav) + 2rem);
+      background: linear-gradient(135deg, #f8fafc 0%, #eef2ff 55%, #f8fafc 100%);
+      position: relative; overflow: hidden;
+    }
+    #hero::before {
+      content: ''; position: absolute; width: 700px; height: 700px;
+      background: radial-gradient(circle, rgba(99,102,241,.08) 0%, transparent 70%);
+      top: -150px; right: -150px; border-radius: 50%; pointer-events: none;
+    }
+    #hero::after {
+      content: ''; position: absolute; width: 450px; height: 450px;
+      background: radial-gradient(circle, rgba(124,58,237,.06) 0%, transparent 70%);
+      bottom: -80px; left: 8%; border-radius: 50%; pointer-events: none;
+    }
+    .hero-wrap {
+      max-width: 1200px; margin: 0 auto;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center;
+    }
+    .greeting {
+      font-size: .875rem; font-weight: 700; color: var(--accent);
+      letter-spacing: .06em; text-transform: uppercase; margin-bottom: 1rem;
+      display: flex; align-items: center; gap: .6rem;
+    }
+    .greeting::before { content: ''; width: 30px; height: 2px; background: var(--accent); display: inline-block; }
+    .hero-name {
+      font-family: 'Playfair Display', serif; font-size: clamp(2.6rem,5vw,4.1rem);
+      font-weight: 800; line-height: 1.08; color: var(--text);
+      margin-bottom: 1.25rem; letter-spacing: -.025em;
+    }
+    .hero-name span {
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+    }
+    .hero-role { font-size: 1.15rem; font-weight: 600; color: var(--text); margin-bottom: .75rem; }
+    .hero-desc {
+      font-size: 1.0625rem; color: var(--muted); line-height: 1.78;
+      margin-bottom: 2.5rem; max-width: 480px;
+    }
+    .hero-acts { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 3rem; }
+    .hero-stats { display: flex; gap: 2.25rem; flex-wrap: wrap; }
+    .stat-n { font-size: 1.8rem; font-weight: 900; color: var(--text); line-height: 1; letter-spacing: -.04em; }
+    .stat-l { font-size: .8125rem; color: var(--muted); margin-top: .2rem; }
+
+    /* avatar */
+    .av-wrap { display: flex; justify-content: center; align-items: center; position: relative; }
+    .av-ring {
+      width: 340px; height: 340px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      padding: 5px; box-shadow: 0 20px 60px rgba(79,70,229,.25);
+      animation: float 6s ease-in-out infinite; flex-shrink: 0;
+    }
+    @keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-13px)} }
+    .av-inner {
+      width: 100%; height: 100%; border-radius: 50%; overflow: hidden;
+      background: linear-gradient(135deg,#EEF2FF,#F5F3FF);
+    }
+    .av-photo { width: 100%; height: 100%; object-fit: cover; object-position: center top; border-radius: 50%; display: block; }
+    .badge {
+      position: absolute; background: #fff; border-radius: 12px; padding: .7rem 1rem;
+      box-shadow: var(--sh-lg); display: flex; align-items: center; gap: .6rem;
+      font-size: .8125rem; font-weight: 600; color: var(--text); white-space: nowrap;
+    }
+    .badge-icon { width: 30px; height: 30px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: .95rem; }
+    .badge-tl { top: 18px; left: -28px; animation: bfl 5s ease-in-out infinite; }
+    .badge-br { bottom: 28px; right: -28px; animation: bfl 5s ease-in-out 1.5s infinite; }
+    @keyframes bfl { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-8px)} }
+
+    /* ABOUT */
+    #about { background: var(--bg-alt); }
+    .about-g { display: grid; grid-template-columns: 1fr 1.4fr; gap: 5rem; align-items: start; }
+    .about-photo-col { position: relative; }
+    .about-photo-frame {
+      width: 100%; max-width: 380px; aspect-ratio: 4/5;
+      border-radius: 20px; overflow: hidden;
+      box-shadow: 0 20px 60px rgba(79,70,229,.18);
+      position: relative;
+    }
+    .about-photo-frame img { width: 100%; height: 100%; object-fit: cover; object-position: center; display: block; }
+    .about-photo-badge {
+      position: absolute; bottom: -18px; right: -18px;
+      background: var(--accent); color: #fff; border-radius: 16px;
+      padding: 1rem 1.25rem; box-shadow: 0 8px 24px rgba(79,70,229,.3);
+      text-align: center;
+    }
+    .about-photo-badge strong { display: block; font-size: 1.5rem; font-weight: 900; letter-spacing: -.03em; }
+    .about-photo-badge span { font-size: .75rem; font-weight: 500; opacity: .85; }
+    .about-content { padding-top: .5rem; }
+    .about-content p { font-size: 1.0625rem; color: var(--muted); line-height: 1.82; margin-bottom: 1.4rem; }
+    .about-content p strong { color: var(--text); font-weight: 600; }
+    .fun-facts { margin-top: 1.75rem; margin-bottom: 2rem; }
+    .fun-facts-title { font-size: .8rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--accent); margin-bottom: 1rem; }
+    .ff-grid { display: grid; grid-template-columns: 1fr 1fr; gap: .65rem; }
+    .ff {
+      display: flex; align-items: flex-start; gap: .65rem;
+      background: #fff; border: 1px solid var(--border);
+      border-radius: 10px; padding: .75rem 1rem; font-size: .875rem;
+      color: var(--text); font-weight: 500; line-height: 1.45;
+      box-shadow: var(--sh);
+    }
+    .ff-icon { font-size: 1.1rem; flex-shrink: 0; margin-top: .05rem; }
+
+    /* JOURNEY */
+    #journey { background: var(--bg); }
+    .tl { position: relative; max-width: 880px; margin: 0 auto; }
+    .tl::before {
+      content: ''; position: absolute; left: 50%; top: 0; bottom: 0; width: 2px;
+      background: linear-gradient(to bottom, var(--accent), var(--accent2));
+      transform: translateX(-50%);
+    }
+    .tl-item { display: grid; grid-template-columns: 1fr 56px 1fr; gap: 0; margin-bottom: 2.25rem; align-items: center; }
+    .tl-card {
+      background: #fff; border: 1px solid var(--border); border-radius: var(--r);
+      padding: 1.4rem 1.5rem; box-shadow: var(--sh); transition: transform .2s, box-shadow .2s;
+    }
+    .tl-card:hover { transform: translateY(-2px); box-shadow: var(--sh-lg); }
+    .tl-empty {}
+    .tl-dot { display: flex; justify-content: center; align-items: center; position: relative; z-index: 1; }
+    .dot {
+      width: 42px; height: 42px; border-radius: 50%; background: #fff;
+      border: 3px solid var(--accent); display: flex; align-items: center;
+      justify-content: center; font-size: 1rem; box-shadow: 0 0 0 5px rgba(79,70,229,.1);
+    }
+    .tl-yr { font-size: .72rem; font-weight: 700; color: var(--accent); letter-spacing: .05em; text-transform: uppercase; margin-bottom: .3rem; }
+    .tl-card h3 { font-size: .9375rem; font-weight: 700; color: var(--text); margin-bottom: .2rem; }
+    .tl-org { font-size: .8375rem; font-weight: 600; color: var(--accent); margin-bottom: .5rem; }
+    .tl-card p { font-size: .84rem; color: var(--muted); line-height: 1.6; }
+
+    /* SKILLS */
+    #skills { background: var(--bg-alt); }
+    .sk-g { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.75rem; }
+    .sk-cat {
+      background: #fff; border-radius: var(--r); padding: 1.75rem;
+      box-shadow: var(--sh); border: 1px solid var(--border);
+    }
+    .sk-hd { display: flex; align-items: center; gap: .75rem; margin-bottom: 1.4rem; }
+    .sk-ic { width: 40px; height: 40px; border-radius: 10px; background: var(--accent-lt); display: flex; align-items: center; justify-content: center; font-size: 1.1rem; }
+    .sk-hd h3 { font-size: .9375rem; font-weight: 700; color: var(--text); }
+    .tags { display: flex; flex-wrap: wrap; gap: .45rem; }
+    .tag {
+      display: inline-flex; align-items: center; padding: .35rem .85rem; border-radius: 50px;
+      font-size: .8rem; font-weight: 500; background: var(--accent-lt);
+      color: var(--accent); border: 1px solid rgba(79,70,229,.14);
+    }
+    .tag.g { background: #F0FDF4; color: #16A34A; border-color: rgba(22,163,74,.14); }
+    .tag.o { background: #FFF7ED; color: #EA580C; border-color: rgba(234,88,12,.14); }
+
+    /* EXPERIENCE */
+    #experience { background: var(--bg); }
+    .exp-list { display: flex; flex-direction: column; gap: 1.4rem; max-width: 900px; margin: 0 auto; }
+    .exp-card {
+      background: #fff; border: 1px solid var(--border); border-radius: var(--r);
+      padding: 1.75rem 2rem; box-shadow: var(--sh);
+      display: grid; grid-template-columns: 52px 1fr; gap: 1.5rem; align-items: start;
+      transition: transform .2s, box-shadow .2s;
+    }
+    .exp-card:hover { transform: translateY(-2px); box-shadow: var(--sh-lg); }
+    .exp-logo {
+      width: 52px; height: 52px; border-radius: 12px;
+      background: var(--accent-lt); display: flex; align-items: center;
+      justify-content: center; font-size: 1.4rem; flex-shrink: 0;
+    }
+    .exp-top { display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: .4rem; margin-bottom: .2rem; }
+    .exp-title { font-size: 1.0625rem; font-weight: 700; color: var(--text); }
+    .exp-period {
+      font-size: .78rem; color: var(--muted); background: var(--bg-alt);
+      padding: .22rem .75rem; border-radius: 50px; border: 1px solid var(--border); font-weight: 500;
+    }
+    .exp-co { font-size: .9375rem; color: var(--accent); font-weight: 600; margin-bottom: 1rem; }
+    .exp-ul { list-style: none; display: flex; flex-direction: column; gap: .5rem; }
+    .exp-ul li { font-size: .9125rem; color: var(--muted); line-height: 1.65; padding-left: 1.25rem; position: relative; }
+    .exp-ul li::before { content: '→'; position: absolute; left: 0; color: var(--accent); font-weight: 700; }
+    .exp-ts { display: flex; flex-wrap: wrap; gap: .4rem; margin-top: 1.1rem; }
+
+    /* PROJECTS */
+    #projects { background: var(--bg-alt); }
+    .filter-row { display: flex; gap: .6rem; flex-wrap: wrap; margin-bottom: 2.25rem; }
+    .fbtn {
+      padding: .45rem 1.2rem; border-radius: 50px; border: 1.5px solid var(--border);
+      background: #fff; color: var(--muted); font-size: .875rem; font-weight: 500;
+      cursor: pointer; transition: all .2s; font-family: 'Inter', sans-serif;
+    }
+    .fbtn.on, .fbtn:hover { background: var(--accent); border-color: var(--accent); color: #fff; }
+    .proj-g { display: grid; grid-template-columns: repeat(auto-fill,minmax(330px,1fr)); gap: 1.6rem; }
+    .pc {
+      background: #fff; border-radius: var(--r); border: 1px solid var(--border);
+      overflow: hidden; box-shadow: var(--sh); transition: transform .3s, box-shadow .3s;
+      display: flex; flex-direction: column;
+    }
+    .pc:hover { transform: translateY(-5px); box-shadow: var(--sh-lg); }
+
+    /* project thumbnail */
+    .pc-thumb {
+      height: 158px; position: relative; overflow: hidden;
+      display: flex; align-items: flex-end; padding: 1rem 1.5rem 1.1rem;
+    }
+    .pc-thumb-icon { font-size: 2.5rem; position: absolute; top: 1rem; left: 1.5rem; filter: drop-shadow(0 2px 8px rgba(0,0,0,.2)); z-index: 2; }
+    .pc-thumb-label {
+      position: absolute; top: 1rem; right: 1rem;
+      background: rgba(255,255,255,.22); backdrop-filter: blur(6px);
+      color: #fff; font-size: .7rem; font-weight: 700; letter-spacing: .07em;
+      text-transform: uppercase; padding: .25rem .65rem; border-radius: 50px;
+      border: 1px solid rgba(255,255,255,.3); z-index: 2;
+    }
+    /* decorative bars */
+    .pc-bars {
+      position: absolute; bottom: 0; right: 0;
+      display: flex; align-items: flex-end; gap: 4px;
+      padding: 0 1.25rem 0 0; opacity: .28; z-index: 1;
+    }
+    .pc-bar { width: 13px; background: #fff; border-radius: 3px 3px 0 0; }
+    /* decorative line chart */
+    .pc-line-chart {
+      position: absolute; inset: 0; z-index: 1; opacity: .18;
+    }
+    .pc-line-chart polyline { fill: none; stroke: #fff; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
+    .pc-dots-row {
+      position: absolute; top: 48%; left: 0; right: 0;
+      display: flex; justify-content: space-evenly; padding: 0 3rem;
+      z-index: 1; opacity: .22;
+    }
+    .pc-dot { width: 9px; height: 9px; border-radius: 50%; background: #fff; }
+
+    .pc-top { padding: 1.1rem 1.5rem 0; display: flex; justify-content: space-between; align-items: flex-start; }
+    .pc-cat {
+      font-size: .72rem; font-weight: 700; letter-spacing: .07em; text-transform: uppercase;
+      color: var(--accent); background: var(--accent-lt); padding: .22rem .75rem; border-radius: 50px;
+    }
+    .pc-yr { font-size: .8rem; color: var(--muted); font-weight: 500; }
+    .pc-body { padding: .85rem 1.5rem; flex: 1; }
+    .pc-body h3 { font-size: 1.0625rem; font-weight: 700; color: var(--text); margin-bottom: .5rem; line-height: 1.3; }
+    .pc-body p { font-size: .88rem; color: var(--muted); line-height: 1.68; margin-bottom: .85rem; }
+    .pc-metrics { display: flex; gap: .85rem; flex-wrap: wrap; margin-bottom: .7rem; }
+    .met { display: flex; align-items: center; gap: .35rem; font-size: .8rem; color: var(--text); }
+    .met-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--accent); flex-shrink: 0; }
+    .met span:last-child { font-weight: 700; }
+    .pc-foot {
+      padding: .9rem 1.5rem 1.35rem; display: flex; align-items: center;
+      justify-content: space-between; border-top: 1px solid var(--border); flex-wrap: wrap; gap: .65rem;
+    }
+    .tech-row { display: flex; flex-wrap: wrap; gap: .35rem; }
+    .tb { font-size: .72rem; font-weight: 500; padding: .18rem .55rem; border-radius: 4px; background: var(--bg-alt); color: var(--muted); border: 1px solid var(--border); }
+    .pl { display: inline-flex; align-items: center; gap: .35rem; font-size: .875rem; font-weight: 600; color: var(--accent); text-decoration: none; transition: gap .18s; }
+    .pl:hover { gap: .6rem; }
+    .pl-na { color: var(--muted); font-size: .875rem; font-style: italic; }
+
+    /* CERTIFICATIONS */
+    #certifications { background: var(--bg); }
+    .cert-g { display: grid; grid-template-columns: repeat(auto-fill,minmax(265px,1fr)); gap: 1.5rem; }
+    .cert-card {
+      background: #fff; border: 1px solid var(--border); border-radius: var(--r);
+      overflow: hidden; box-shadow: var(--sh); transition: transform .2s, box-shadow .2s; cursor: pointer;
+    }
+    .cert-card:hover { transform: translateY(-3px); box-shadow: var(--sh-lg); }
+    .cert-img { width: 100%; height: 175px; object-fit: cover; object-position: center top; display: block; }
+    .cert-ph {
+      width: 100%; height: 175px; display: flex; flex-direction: column;
+      align-items: center; justify-content: center; font-size: 2.8rem; gap: .45rem;
+    }
+    .cert-ph span { font-size: .825rem; font-weight: 700; }
+    .cert-body { padding: 1.1rem 1.25rem; }
+    .cert-iss { font-size: .7rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--accent); margin-bottom: .3rem; }
+    .cert-name { font-size: .9125rem; font-weight: 700; color: var(--text); margin-bottom: .25rem; line-height: 1.4; }
+    .cert-dt { font-size: .8rem; color: var(--muted); }
+
+    /* VOLUNTEERING */
+    #volunteering { background: var(--bg-alt); }
+    .vol-g { display: grid; grid-template-columns: repeat(auto-fill,minmax(330px,1fr)); gap: 1.6rem; }
+    .vol-card {
+      background: #fff; border-radius: var(--r); border: 1px solid var(--border);
+      overflow: hidden; box-shadow: var(--sh); transition: transform .2s, box-shadow .2s;
+    }
+    .vol-card:hover { transform: translateY(-3px); box-shadow: var(--sh-lg); }
+    .vol-img { width: 100%; height: 215px; object-fit: cover; display: block; }
+    .vol-ph { width: 100%; height: 215px; display: flex; align-items: center; justify-content: center; font-size: 4rem; }
+    .vol-body { padding: 1.4rem 1.5rem; }
+    .vol-role { font-size: .7rem; font-weight: 700; color: var(--accent); text-transform: uppercase; letter-spacing: .08em; margin-bottom: .35rem; }
+    .vol-body h3 { font-size: 1.0125rem; font-weight: 700; color: var(--text); margin-bottom: .45rem; }
+    .vol-body p { font-size: .88rem; color: var(--muted); line-height: 1.68; }
+    .vol-per { font-size: .8rem; color: var(--muted); margin-top: .8rem; display: flex; align-items: center; gap: .35rem; }
+
+    /* gallery */
+    .gallery { display: grid; grid-template-columns: repeat(3,1fr); gap: 1rem; margin-top: 2.75rem; }
+    .gallery.wide { grid-template-columns: repeat(3,1fr); }
+    .gallery > div { overflow: hidden; border-radius: 10px; }
+    .gimg { width: 100%; height: 200px; object-fit: cover; display: block; transition: transform .3s, filter .3s; cursor: pointer; }
+    .gimg:hover { transform: scale(1.04); filter: brightness(1.06); }
+
+    /* CONTACT */
+    #contact { background: var(--text); color: #fff; }
+    #contact .label { color: #818CF8; }
+    #contact .sh { color: #fff; }
+    #contact .sub { color: #94A3B8; }
+    .con-g { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
+    .con-links { display: flex; flex-direction: column; gap: 1.1rem; margin-top: 2.25rem; }
+    .con-link {
+      display: flex; align-items: center; gap: 1rem; text-decoration: none; color: #fff;
+      padding: 1.15rem 1.4rem; border-radius: var(--r);
+      background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.1);
+      transition: all .2s;
+    }
+    .con-link:hover { background: rgba(79,70,229,.3); border-color: rgba(99,102,241,.4); transform: translateX(4px); }
+    .con-link-ic { width: 42px; height: 42px; border-radius: 10px; background: rgba(255,255,255,.08); display: flex; align-items: center; justify-content: center; font-size: 1.2rem; flex-shrink: 0; }
+    .con-link-t strong { display: block; font-weight: 600; font-size: .9375rem; }
+    .con-link-t span { font-size: .875rem; color: #94A3B8; }
+    .cta-box { text-align: center; }
+    .cta-hdg { font-family: 'Playfair Display',serif; font-size: clamp(1.75rem,3vw,2.5rem); font-weight: 700; color: #fff; line-height: 1.2; margin-bottom: 1.4rem; }
+    .cta-hdg em { font-style: italic; color: #818CF8; }
+    .cta-sub { color: #94A3B8; font-size: 1rem; margin-bottom: 2rem; line-height: 1.72; }
+
+    /* FOOTER */
+    footer { background: #0F0F1A; color: #475569; text-align: center; padding: 1.75rem 2rem; font-size: .875rem; }
+    footer a { color: #818CF8; text-decoration: none; }
+
+    /* LIGHTBOX */
+    .lb { display: none; position: fixed; inset: 0; background: rgba(0,0,0,.92); z-index: 900; align-items: center; justify-content: center; padding: 2rem; }
+    .lb.on { display: flex; }
+    .lb img { max-width: 90vw; max-height: 88vh; object-fit: contain; border-radius: 8px; }
+    .lb-close {
+      position: absolute; top: 1.25rem; right: 1.25rem; background: rgba(255,255,255,.15);
+      border: none; color: #fff; width: 44px; height: 44px; border-radius: 50%;
+      font-size: 1.2rem; cursor: pointer; display: flex; align-items: center; justify-content: center;
+      transition: background .2s;
+    }
+    .lb-close:hover { background: rgba(255,255,255,.28); }
+
+    /* SCROLL TOP */
+    .st {
+      position: fixed; bottom: 2rem; right: 2rem; width: 44px; height: 44px;
+      border-radius: 50%; background: var(--accent); color: #fff; border: none;
+      cursor: pointer; display: flex; align-items: center; justify-content: center;
+      font-size: 1.1rem; box-shadow: 0 4px 20px rgba(79,70,229,.4);
+      opacity: 0; transform: translateY(10px); transition: all .3s; z-index: 50;
+    }
+    .st.on { opacity: 1; transform: none; }
+    .st:hover { background: var(--accent2); transform: translateY(-2px); }
+
+    /* RESPONSIVE */
+    @media (max-width: 900px) {
+      .sk-g { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 768px) {
+      section { padding: 4rem 1.25rem; }
+      .hero-wrap { grid-template-columns: 1fr; text-align: center; gap: 3rem; }
+      .greeting { justify-content: center; }
+      .hero-desc { margin: 0 auto 2.5rem; }
+      .hero-acts { justify-content: center; }
+      .hero-stats { justify-content: center; }
+      .av-ring { width: 240px; height: 240px; }
+      .badge-tl { left: 0; } .badge-br { right: 0; }
+      .about-g { grid-template-columns: 1fr; gap: 2.5rem; }
+      .about-photo-frame { max-width: 100%; aspect-ratio: 4/3; }
+      .about-photo-badge { bottom: -12px; right: 12px; }
+      .ff-grid { grid-template-columns: 1fr; }
+      .tl::before { left: 20px; }
+      .tl-item { grid-template-columns: 44px 1fr; }
+      .tl-empty { display: none; }
+      .tl-dot { justify-content: flex-start; }
+      .dot { width: 36px; height: 36px; font-size: .85rem; }
+      .tl-item:nth-child(even) .tl-card { order: unset; }
+      .tl-item:nth-child(even) .tl-dot { order: unset; }
+      .sk-g { grid-template-columns: 1fr; }
+      .exp-card { grid-template-columns: 1fr; gap: .9rem; }
+      .proj-g { grid-template-columns: 1fr; }
+      .gallery { grid-template-columns: 1fr 1fr; }
+      .con-g { grid-template-columns: 1fr; gap: 3rem; }
+      .nav-links { display: none; }
+      .ham { display: flex; }
+      .nav-links.open {
+        display: flex; flex-direction: column;
+        position: absolute; top: var(--nav); left: 0; right: 0;
+        background: #fff; padding: 1.5rem 2rem; border-bottom: 1px solid var(--border);
+        box-shadow: var(--sh-lg); gap: 1.25rem;
+      }
+    }
+    @media (max-width: 480px) {
+      .gallery { grid-template-columns: 1fr; }
+      .ff-grid { grid-template-columns: 1fr; }
+      .cert-g { grid-template-columns: 1fr; }
+      .vol-g { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="nav">
+  <div class="nav-in">
+    <a href="#hero" class="nav-logo">KD</a>
+    <ul class="nav-links" id="navlinks">
+      <li><a href="#about">About</a></li>
+      <li><a href="#journey">Journey</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#certifications">Certs</a></li>
+      <li><a href="#volunteering">Volunteering</a></li>
+      <li><a href="#contact" class="nav-cta">Contact</a></li>
+    </ul>
+    <div class="ham" id="ham" onclick="toggleNav()">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-wrap">
+    <div class="hero-text">
+      <div class="greeting">MS Engineering Management, Class of 2026</div>
+      <h1 class="hero-name">Krishnaveni<br><span>Doki</span></h1>
+      <p class="hero-role">Operations &amp; Project Management Professional</p>
+      <p class="hero-desc">
+        Bridging engineering precision with strategic business execution,
+        turning data into decisions and complexity into clarity.
+      </p>
+      <div class="hero-acts">
+        <a href="Krishnaveni%20Doki%20-%20Resume.pdf" download class="btn btn-p">↓ Download Resume</a>
+        <a href="#contact" class="btn btn-s">Let's Connect →</a>
+      </div>
+      <div class="hero-stats">
+        <div><div class="stat-n" data-count="3" data-suffix="+">3+</div><div class="stat-l">Years Experience</div></div>
+        <div><div class="stat-n" data-count="8" data-suffix="+">8+</div><div class="stat-l">Data Projects</div></div>
+        <div><div class="stat-n" data-count="4.0" data-decimal="true">4.0</div><div class="stat-l">GPA at ASU</div></div>
+        <div><div class="stat-n">LSS</div><div class="stat-l">Green Belt</div></div>
+      </div>
+    </div>
+    <div class="av-wrap">
+      <div style="position:relative">
+        <div class="av-ring">
+          <div class="av-inner">
+            <img class="av-photo" src="Krishnaveni%20Doki.jpeg" alt="Krishnaveni Doki" />
+          </div>
+        </div>
+        <div class="badge badge-tl">
+          <div class="badge-icon" style="background:#EEF2FF">📊</div>
+          <span>Tableau Certified</span>
+        </div>
+        <div class="badge badge-br">
+          <div class="badge-icon" style="background:#F0FDF4">🎯</div>
+          <span>Lean Six Sigma Green Belt</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="wrap">
+    <div class="about-g">
+      <!-- photo -->
+      <div class="about-photo-col fi">
+        <div class="about-photo-frame">
+          <img src="Krishnaveni%20Doki.jpeg" alt="Krishnaveni Doki" />
+        </div>
+        <div class="about-photo-badge">
+          <strong>4.0</strong>
+          <span>GPA at ASU</span>
+        </div>
+      </div>
+      <!-- content -->
+      <div class="about-content fi d2">
+        <div class="label">About Me</div>
+        <h2 class="sh">From Circuits<br>to Strategy</h2>
+        <p>
+          My journey began in the labs of <strong>SIES Graduate School of Technology, Mumbai</strong>,
+          where I earned a Bachelor's in <strong>Electronics and Telecommunications Engineering</strong>.
+          Four years of signal processing, IoT design, and hardware projects built a rigorous,
+          systems-thinking mindset.
+        </p>
+        <p>
+          That foundation led me to <strong>Arizona State University</strong>, where I earned my
+          Master's in <strong>Engineering Management</strong> with a 4.0 GPA. I now combine
+          engineering precision with data analytics and project management to drive operational
+          excellence — targeting roles in Operations Analysis, Project Coordination, and
+          Strategy and Operations.
+        </p>
+
+        <div class="fun-facts">
+          <div class="fun-facts-title">A little more about me</div>
+          <div class="ff-grid">
+            <div class="ff"><span class="ff-icon">🤝</span>Passionate STEM volunteer and community builder</div>
+            <div class="ff"><span class="ff-icon">📊</span>Data visualization nerd, 5+ Tableau dashboards built</div>
+            <div class="ff"><span class="ff-icon">🌏</span>Mumbai to Tempe, bridging two worlds and cultures</div>
+            <div class="ff"><span class="ff-icon">🔧</span>Equal parts engineer and business strategist</div>
+            <div class="ff"><span class="ff-icon">🌵</span>Active member of Women in TEM at ASU</div>
+            <div class="ff"><span class="ff-icon">📚</span>Always chasing the next certification or course</div>
+          </div>
+        </div>
+
+        <a href="#journey" class="btn btn-p">See My Journey →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- JOURNEY -->
+<section id="journey">
+  <div class="wrap">
+    <div class="sec-hd c fi">
+      <div class="label">My Journey</div>
+      <h2 class="sh">From Engineering to Strategy</h2>
+      <p class="sub">A deliberate path from technical foundations to business leadership, each chapter building on the last.</p>
+    </div>
+    <div class="tl">
+
+      <div class="tl-item fi">
+        <div class="tl-card">
+          <div class="tl-yr">2019 – 2023</div>
+          <h3>Bachelor of Engineering</h3>
+          <div class="tl-org">SIES Graduate School of Technology, Mumbai</div>
+          <p>Electronics and Telecommunications Engineering. Built foundational skills in signal systems, IoT, and embedded design. Capstone: IoT-Based Smart Shopping Trolley. GPA: 3.72/4.00</p>
+        </div>
+        <div class="tl-dot"><div class="dot">🎓</div></div>
+        <div class="tl-empty"></div>
+      </div>
+
+      <div class="tl-item fi">
+        <div class="tl-empty"></div>
+        <div class="tl-dot"><div class="dot">⚡</div></div>
+        <div class="tl-card">
+          <div class="tl-yr">2022 – 2023</div>
+          <h3>Executive Committee Member, Media Mentor</h3>
+          <div class="tl-org">IEEE SIESGST, Bombay Section</div>
+          <p>Managed publicity, outreach, and technical communications for the IEEE SIESGST branch. Earned a Certificate of Appreciation from the executive committee.</p>
+        </div>
+      </div>
+
+      <div class="tl-item fi">
+        <div class="tl-card">
+          <div class="tl-yr">March 2022</div>
+          <h3>STEM Outreach Volunteer</h3>
+          <div class="tl-org">IEEE WiE SIESGST, Mumbai Schools</div>
+          <p>Volunteered for WiE STEM Lectures at Gyan Jyoti Savitribai Phule School and NMMC School No. 11, delivering STEM education to inspire young students across Navi Mumbai.</p>
+        </div>
+        <div class="tl-dot"><div class="dot">🌟</div></div>
+        <div class="tl-empty"></div>
+      </div>
+
+      <div class="tl-item fi">
+        <div class="tl-empty"></div>
+        <div class="tl-dot"><div class="dot">💼</div></div>
+        <div class="tl-card">
+          <div class="tl-yr">May – Aug 2022</div>
+          <h3>Project Assistant</h3>
+          <div class="tl-org">Exposys Data Labs, Bangalore</div>
+          <p>Coordinated end-to-end IT project delivery for a client-facing web application using Confluence and Microsoft Project. Delivered on schedule to 4+ stakeholders.</p>
+        </div>
+      </div>
+
+      <div class="tl-item fi">
+        <div class="tl-card">
+          <div class="tl-yr">Sept – Dec 2022</div>
+          <h3>Program Lead, IEEE TENSYMP 2022</h3>
+          <div class="tl-org">IEEE Bombay Section, Mumbai</div>
+          <p>Managed full program lifecycle for a global technical symposium. Coordinated 10+ evaluators and 32+ international participants with 100% on-time milestone delivery.</p>
+        </div>
+        <div class="tl-dot"><div class="dot">🚀</div></div>
+        <div class="tl-empty"></div>
+      </div>
+
+      <div class="tl-item fi">
+        <div class="tl-empty"></div>
+        <div class="tl-dot"><div class="dot">📡</div></div>
+        <div class="tl-card">
+          <div class="tl-yr">July 2023 – July 2024</div>
+          <h3>Assistant Manager</h3>
+          <div class="tl-org">Reliance Jio, Mumbai, India</div>
+          <p>Built centralized IT workflows for 82+ enterprise clients using SQL, JIRA, and SAP GRC, improving SLA compliance to 87%. Automated SAP CRM operations via Python.</p>
+        </div>
+      </div>
+
+      <div class="tl-item fi">
+        <div class="tl-card">
+          <div class="tl-yr">Aug 2024 – May 2026</div>
+          <h3>Master of Science, Engineering Management</h3>
+          <div class="tl-org">Arizona State University, Tempe, AZ</div>
+          <p>Graduated with a 4.0 GPA. Specialized in operations, ERP systems, data analytics, and technology strategy. Teaching Assistant for project management and enterprise planning courses.</p>
+        </div>
+        <div class="tl-dot"><div class="dot">🌵</div></div>
+        <div class="tl-empty"></div>
+      </div>
+
+      <div class="tl-item fi">
+        <div class="tl-empty"></div>
+        <div class="tl-dot">
+          <div class="dot" style="border-color:#10B981;box-shadow:0 0 0 5px rgba(16,185,129,.15)">✨</div>
+        </div>
+        <div class="tl-card" style="border-color:#10B981;background:linear-gradient(135deg,#F0FDF4,#fff)">
+          <div class="tl-yr" style="color:#16A34A">Graduated May 2026</div>
+          <h3>Open to Opportunities</h3>
+          <div class="tl-org" style="color:#16A34A">Operations Analyst · Project Coordinator · Strategy and Ops</div>
+          <p>Ready to bring a strong foundation in data analytics, project management, and operations to a high-impact team from Day 1.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="wrap">
+    <div class="sec-hd c fi">
+      <div class="label">Skills and Tools</div>
+      <h2 class="sh">What I Bring to the Table</h2>
+      <p class="sub">A versatile toolkit spanning data analytics, project management, and operational strategy.</p>
+    </div>
+    <div class="sk-g">
+      <div class="sk-cat fi">
+        <div class="sk-hd"><div class="sk-ic">📊</div><h3>Analytics and Visualization</h3></div>
+        <div class="tags">
+          <span class="tag">Tableau</span><span class="tag">Power BI</span><span class="tag">SQL</span>
+          <span class="tag">Microsoft Excel</span><span class="tag">Python</span><span class="tag">Google Sheets</span>
+          <span class="tag">KPI Dashboards</span><span class="tag">Time-Series Analysis</span><span class="tag">Data Cleaning</span>
+        </div>
+      </div>
+      <div class="sk-cat fi d1">
+        <div class="sk-hd"><div class="sk-ic">🗂️</div><h3>Project Management</h3></div>
+        <div class="tags">
+          <span class="tag g">JIRA</span><span class="tag g">Confluence</span><span class="tag g">Microsoft Project</span>
+          <span class="tag g">Asana / Trello</span><span class="tag g">Lucidchart</span>
+          <span class="tag g">Milestone Tracking</span><span class="tag g">Risk Monitoring</span>
+          <span class="tag g">UAT Management</span><span class="tag g">Status Reporting</span>
+        </div>
+      </div>
+      <div class="sk-cat fi d2">
+        <div class="sk-hd"><div class="sk-ic">⚙️</div><h3>Operations and Strategy</h3></div>
+        <div class="tags">
+          <span class="tag o">SAP GRC / CRM</span><span class="tag o">Lean Six Sigma</span>
+          <span class="tag o">ERP Systems</span><span class="tag o">Demand Forecasting</span>
+          <span class="tag o">Process Improvement</span><span class="tag o">Supply Chain</span>
+          <span class="tag o">Cross-Functional Coordination</span><span class="tag o">KPI Monitoring</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="wrap">
+    <div class="sec-hd fi">
+      <div class="label">Work Experience</div>
+      <h2 class="sh">Professional History</h2>
+      <p class="sub">Real-world impact across telecom, education, tech consulting, and international events.</p>
+    </div>
+    <div class="exp-list">
+
+      <div class="exp-card fi">
+        <div class="exp-logo">🎓</div>
+        <div>
+          <div class="exp-top">
+            <div class="exp-title">Teaching Assistant</div>
+            <div class="exp-period">Aug 2025 – May 2026</div>
+          </div>
+          <div class="exp-co">Arizona State University, Tempe, AZ</div>
+          <ul class="exp-ul">
+            <li>Managed project tracking and milestone scheduling across 137 IT project management reports using Lucidchart and Trello, achieving 100% on-time assessment delivery.</li>
+            <li>Developed process documentation and structured feedback protocols for 178 concurrent student projects, ensuring consistent quality and on-schedule delivery.</li>
+          </ul>
+          <div class="exp-ts">
+            <span class="tag">Project Coordination</span><span class="tag">Process Documentation</span>
+            <span class="tag g">Trello</span><span class="tag g">Lucidchart</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="exp-card fi">
+        <div class="exp-logo">📡</div>
+        <div>
+          <div class="exp-top">
+            <div class="exp-title">Assistant Manager</div>
+            <div class="exp-period">July 2023 – July 2024</div>
+          </div>
+          <div class="exp-co">Reliance Jio, Mumbai, India</div>
+          <ul class="exp-ul">
+            <li>Built and managed a centralized IT ticket workflow for 82+ enterprise clients using SQL, MS Excel, and JIRA, achieving 87% SLA compliance, a 20-point improvement from baseline.</li>
+            <li>Led a process improvement initiative to automate SAP CRM workflows using Python, reducing IT support turnaround time and operational risk across the team.</li>
+          </ul>
+          <div class="exp-ts">
+            <span class="tag">SAP GRC / CRM</span><span class="tag o">JIRA</span>
+            <span class="tag o">SQL</span><span class="tag o">Python</span><span class="tag g">Process Automation</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="exp-card fi">
+        <div class="exp-logo">⚡</div>
+        <div>
+          <div class="exp-top">
+            <div class="exp-title">Program Lead, IEEE TENSYMP 2022</div>
+            <div class="exp-period">Sept – Dec 2022</div>
+          </div>
+          <div class="exp-co">IEEE Bombay Section, Mumbai, India</div>
+          <ul class="exp-ul">
+            <li>Managed full program lifecycle for a global technical symposium, coordinating 10+ evaluators and 32+ international participants with 100% on-time milestone delivery.</li>
+            <li>Designed a real-time inventory and logistics tracking system to close resource gaps during live event execution.</li>
+          </ul>
+          <div class="exp-ts">
+            <span class="tag">Event Management</span><span class="tag">Stakeholder Communication</span>
+            <span class="tag g">Program Lifecycle</span><span class="tag g">Logistics</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="exp-card fi">
+        <div class="exp-logo">💻</div>
+        <div>
+          <div class="exp-top">
+            <div class="exp-title">Project Assistant</div>
+            <div class="exp-period">May – Aug 2022</div>
+          </div>
+          <div class="exp-co">Exposys Data Labs, Bangalore, India</div>
+          <ul class="exp-ul">
+            <li>Coordinated end-to-end IT project planning and delivery for a client-facing web application in a 5-member cross-functional team using Confluence and Microsoft Project, delivering on schedule to 4+ stakeholders.</li>
+          </ul>
+          <div class="exp-ts">
+            <span class="tag g">Confluence</span><span class="tag g">Microsoft Project</span>
+            <span class="tag">Requirements Tracking</span><span class="tag">Risk Management</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="wrap">
+    <div class="sec-hd c fi">
+      <div class="label">Projects</div>
+      <h2 class="sh">Work I'm Proud Of</h2>
+      <p class="sub">From Tableau dashboards to ERP competitive strategy and IoT hardware, spanning analytics, operations, and engineering.</p>
+    </div>
+    <div class="filter-row fi">
+      <button class="fbtn on" onclick="fp('all',this)">All</button>
+      <button class="fbtn" onclick="fp('tableau',this)">Tableau</button>
+      <button class="fbtn" onclick="fp('analytics',this)">Analytics</button>
+      <button class="fbtn" onclick="fp('strategy',this)">Strategy</button>
+      <button class="fbtn" onclick="fp('engineering',this)">Engineering</button>
+    </div>
+    <div class="proj-g" id="proj-g">
+
+      <!-- MegaMart -->
+      <div class="pc fi" data-cat="tableau analytics">
+        <div class="pc-thumb" style="background:linear-gradient(135deg,#F97316,#EF4444)">
+          <div class="pc-thumb-icon">🛒</div>
+          <div class="pc-thumb-label">Sales Dashboard</div>
+          <div class="pc-bars">
+            <div class="pc-bar" style="height:60px"></div><div class="pc-bar" style="height:80px"></div>
+            <div class="pc-bar" style="height:45px"></div><div class="pc-bar" style="height:90px"></div>
+            <div class="pc-bar" style="height:70px"></div><div class="pc-bar" style="height:100px"></div>
+          </div>
+          <svg class="pc-line-chart" viewBox="0 0 300 100" preserveAspectRatio="none">
+            <polyline points="0,80 60,55 120,65 180,30 240,45 300,20"/>
+          </svg>
+        </div>
+        <div class="pc-top"><span class="pc-cat">Tableau · Analytics</span><span class="pc-yr">Jun–Jul 2025</span></div>
+        <div class="pc-body">
+          <h3>Sales Performance Analysis, MegaMart</h3>
+          <p>Interactive Tableau dashboard tracking agent-wise KPIs and sales over time, with dynamic filters and prior-month comparison tools built for investor decision-making.</p>
+          <div class="pc-metrics">
+            <div class="met"><div class="met-dot"></div><span>Target:</span><span> 72% Achievement</span></div>
+            <div class="met"><div class="met-dot"></div><span>Sales Tracked:</span><span> $1.57M+</span></div>
+          </div>
+        </div>
+        <div class="pc-foot">
+          <div class="tech-row"><span class="tb">Tableau</span><span class="tb">SQL</span><span class="tb">Excel</span><span class="tb">KPI Design</span></div>
+          <a href="MegaMart%20Sales%20Dashboard.twbx" download class="pl">Download ↗</a>
+        </div>
+      </div>
+
+      <!-- ERP Strategy -->
+      <div class="pc fi d1" data-cat="strategy analytics">
+        <div class="pc-thumb" style="background:linear-gradient(135deg,#1E40AF,#3B82F6)">
+          <div class="pc-thumb-icon">🏢</div>
+          <div class="pc-thumb-label">Strategy Report</div>
+          <div class="pc-dots-row">
+            <div class="pc-dot"></div><div class="pc-dot"></div><div class="pc-dot"></div>
+            <div class="pc-dot"></div><div class="pc-dot"></div>
+          </div>
+          <div class="pc-bars">
+            <div class="pc-bar" style="height:50px"></div><div class="pc-bar" style="height:95px"></div>
+            <div class="pc-bar" style="height:75px"></div><div class="pc-bar" style="height:60px"></div>
+          </div>
+        </div>
+        <div class="pc-top"><span class="pc-cat">Strategy · Research</span><span class="pc-yr">Aug–Dec 2025</span></div>
+        <div class="pc-body">
+          <h3>Strategic Analysis of ERP Industry, SAP, Oracle and Workday</h3>
+          <p>40+ page comparative framework evaluating ERP vendor competitiveness using Porter's Five Forces and VRIO, covering a $64.8B to $123.4B market opportunity.</p>
+          <div class="pc-metrics">
+            <div class="met"><div class="met-dot"></div><span>Market Size:</span><span> $123.4B</span></div>
+            <div class="met"><div class="met-dot"></div><span>Report:</span><span> 40+ Pages</span></div>
+          </div>
+        </div>
+        <div class="pc-foot">
+          <div class="tech-row"><span class="tb">Porter's 5 Forces</span><span class="tb">VRIO</span><span class="tb">Market Research</span></div>
+          <span class="pl-na">Research Project</span>
+        </div>
+      </div>
+
+      <!-- Markstrat -->
+      <div class="pc fi d2" data-cat="strategy">
+        <div class="pc-thumb" style="background:linear-gradient(135deg,#7C3AED,#EC4899)">
+          <div class="pc-thumb-icon">📈</div>
+          <div class="pc-thumb-label">B2B Simulation</div>
+          <svg class="pc-line-chart" viewBox="0 0 300 100" preserveAspectRatio="none">
+            <polyline points="0,70 50,60 100,45 150,55 200,30 250,20 300,10"/>
+          </svg>
+          <div class="pc-bars">
+            <div class="pc-bar" style="height:40px"></div><div class="pc-bar" style="height:65px"></div>
+            <div class="pc-bar" style="height:85px"></div><div class="pc-bar" style="height:95px"></div>
+          </div>
+        </div>
+        <div class="pc-top"><span class="pc-cat">B2B Strategy</span><span class="pc-yr">Aug 2024–Jan 2025</span></div>
+        <div class="pc-body">
+          <h3>B2B Market Strategy Simulation, Markstrat</h3>
+          <p>Managed a cross-functional portfolio of 5 B2B products through a competitive market simulation applying pricing optimization, competitive positioning, and distribution strategies.</p>
+          <div class="pc-metrics">
+            <div class="met"><div class="met-dot"></div><span>Market Share:</span><span> +14%</span></div>
+            <div class="met"><div class="met-dot"></div><span>Revenue Growth:</span><span> +16%</span></div>
+          </div>
+        </div>
+        <div class="pc-foot">
+          <div class="tech-row"><span class="tb">Competitive Analysis</span><span class="tb">Portfolio Mgmt</span><span class="tb">Pricing</span></div>
+          <span class="pl-na">Simulation</span>
+        </div>
+      </div>
+
+      <!-- GreatFit -->
+      <div class="pc fi" data-cat="tableau analytics">
+        <div class="pc-thumb" style="background:linear-gradient(135deg,#0D9488,#0EA5E9)">
+          <div class="pc-thumb-icon">⭐</div>
+          <div class="pc-thumb-label">Review Analytics</div>
+          <div class="pc-dots-row">
+            <div class="pc-dot"></div><div class="pc-dot"></div><div class="pc-dot"></div>
+            <div class="pc-dot"></div><div class="pc-dot"></div><div class="pc-dot"></div>
+          </div>
+          <div class="pc-bars">
+            <div class="pc-bar" style="height:70px"></div><div class="pc-bar" style="height:85px"></div>
+            <div class="pc-bar" style="height:55px"></div><div class="pc-bar" style="height:90px"></div>
+            <div class="pc-bar" style="height:75px"></div>
+          </div>
+        </div>
+        <div class="pc-top"><span class="pc-cat">Tableau · Analytics</span><span class="pc-yr">2025</span></div>
+        <div class="pc-body">
+          <h3>GreatFit Review Analytics Dashboard</h3>
+          <p>Interactive dashboard tracking customer sentiment, product ratings, and review trends over time, enabling data-driven product and operational decisions.</p>
+          <div class="pc-metrics">
+            <div class="met"><div class="met-dot"></div><span>Type:</span><span> Review Analytics</span></div>
+          </div>
+        </div>
+        <div class="pc-foot">
+          <div class="tech-row"><span class="tb">Tableau</span><span class="tb">Customer Analytics</span><span class="tb">Sentiment</span></div>
+          <a href="GreatFit%20Review%20Dasboard.twbx" download class="pl">Download ↗</a>
+        </div>
+      </div>
+
+      <!-- Meta Stock -->
+      <div class="pc fi d1" data-cat="tableau analytics">
+        <div class="pc-thumb" style="background:linear-gradient(135deg,#0F172A,#334155)">
+          <div class="pc-thumb-icon">📉</div>
+          <div class="pc-thumb-label">Financial Analytics</div>
+          <svg class="pc-line-chart" style="opacity:.25" viewBox="0 0 300 100" preserveAspectRatio="none">
+            <polyline points="0,50 40,40 80,60 120,35 160,55 200,25 240,40 300,15"/>
+          </svg>
+          <div class="pc-bars">
+            <div class="pc-bar" style="height:45px"></div><div class="pc-bar" style="height:70px"></div>
+            <div class="pc-bar" style="height:55px"></div><div class="pc-bar" style="height:80px"></div>
+          </div>
+        </div>
+        <div class="pc-top"><span class="pc-cat">Tableau · Finance</span><span class="pc-yr">2025</span></div>
+        <div class="pc-body">
+          <h3>Meta Stock Performance Dashboard</h3>
+          <p>Financial analytics dashboard tracking Meta's stock performance with historical trend analysis, volume indicators, and performance benchmarking visualizations.</p>
+          <div class="pc-metrics">
+            <div class="met"><div class="met-dot"></div><span>Type:</span><span> Financial Analytics</span></div>
+          </div>
+        </div>
+        <div class="pc-foot">
+          <div class="tech-row"><span class="tb">Tableau</span><span class="tb">Financial Data</span><span class="tb">Time-Series</span></div>
+          <a href="Meta%20Stock%20dashboard.twbx" download class="pl">Download ↗</a>
+        </div>
+      </div>
+
+      <!-- Olist -->
+      <div class="pc fi d2" data-cat="tableau analytics">
+        <div class="pc-thumb" style="background:linear-gradient(135deg,#059669,#10B981)">
+          <div class="pc-thumb-icon">🛍️</div>
+          <div class="pc-thumb-label">E-Commerce Analytics</div>
+          <div class="pc-bars">
+            <div class="pc-bar" style="height:55px"></div><div class="pc-bar" style="height:80px"></div>
+            <div class="pc-bar" style="height:65px"></div><div class="pc-bar" style="height:95px"></div>
+            <div class="pc-bar" style="height:75px"></div><div class="pc-bar" style="height:85px"></div>
+          </div>
+        </div>
+        <div class="pc-top"><span class="pc-cat">Tableau · E-Commerce</span><span class="pc-yr">2025</span></div>
+        <div class="pc-body">
+          <h3>Olist E-Commerce Analytics Dashboard</h3>
+          <p>Analyzed Brazilian e-commerce platform data with dashboards covering order trends, delivery performance, seller analytics, and revenue segmentation.</p>
+          <div class="pc-metrics">
+            <div class="met"><div class="met-dot"></div><span>Type:</span><span> E-Commerce Analytics</span></div>
+          </div>
+        </div>
+        <div class="pc-foot">
+          <div class="tech-row"><span class="tb">Tableau</span><span class="tb">E-Commerce</span><span class="tb">Supply Chain</span></div>
+          <a href="Olist%20Dashboard.twbx" download class="pl">Download ↗</a>
+        </div>
+      </div>
+
+      <!-- Park City -->
+      <div class="pc fi" data-cat="tableau analytics">
+        <div class="pc-thumb" style="background:linear-gradient(135deg,#65A30D,#84CC16)">
+          <div class="pc-thumb-icon">🗺️</div>
+          <div class="pc-thumb-label">Urban Analytics</div>
+          <div class="pc-dots-row">
+            <div class="pc-dot"></div><div class="pc-dot" style="opacity:.6"></div><div class="pc-dot" style="opacity:.4"></div>
+            <div class="pc-dot" style="opacity:.8"></div><div class="pc-dot" style="opacity:.3"></div>
+          </div>
+          <div class="pc-bars">
+            <div class="pc-bar" style="height:60px"></div><div class="pc-bar" style="height:75px"></div>
+            <div class="pc-bar" style="height:50px"></div><div class="pc-bar" style="height:85px"></div>
+          </div>
+        </div>
+        <div class="pc-top"><span class="pc-cat">Tableau · Urban Analytics</span><span class="pc-yr">2025</span></div>
+        <div class="pc-body">
+          <h3>Park City Analytics Dashboard</h3>
+          <p>Geospatial and operational analytics dashboard supporting urban planning insights, visitor trend analysis, and resource allocation decision-making.</p>
+          <div class="pc-metrics">
+            <div class="met"><div class="met-dot"></div><span>Type:</span><span> Urban Data Analytics</span></div>
+          </div>
+        </div>
+        <div class="pc-foot">
+          <div class="tech-row"><span class="tb">Tableau</span><span class="tb">Geospatial</span><span class="tb">Urban Planning</span></div>
+          <a href="Park%20City%20Dashboard.twbx" download class="pl">Download ↗</a>
+        </div>
+      </div>
+
+      <!-- IoT -->
+      <div class="pc fi d1" data-cat="engineering">
+        <div class="pc-thumb" style="background:linear-gradient(135deg,#0284C7,#4F46E5)">
+          <div class="pc-thumb-icon">🔬</div>
+          <div class="pc-thumb-label">IoT Hardware</div>
+          <div class="pc-dots-row">
+            <div class="pc-dot"></div><div class="pc-dot"></div><div class="pc-dot"></div>
+            <div class="pc-dot"></div><div class="pc-dot"></div><div class="pc-dot"></div><div class="pc-dot"></div>
+          </div>
+          <svg class="pc-line-chart" style="opacity:.2" viewBox="0 0 300 100" preserveAspectRatio="none">
+            <polyline points="0,50 30,30 60,50 90,30 120,50 150,30 180,50 210,30 240,50 270,30 300,50"/>
+          </svg>
+        </div>
+        <div class="pc-top"><span class="pc-cat">Engineering · IoT</span><span class="pc-yr">2022–2023</span></div>
+        <div class="pc-body">
+          <h3>IoT-Based Smart Shopping Trolley</h3>
+          <p>Bachelor's capstone project. Designed an IoT-enabled smart shopping trolley with automated item detection, real-time billing, and inventory tracking using embedded systems and sensor arrays.</p>
+          <div class="pc-metrics">
+            <div class="met"><div class="met-dot"></div><span>Type:</span><span> Hardware + IoT</span></div>
+            <div class="met"><div class="met-dot"></div><span>Level:</span><span> BE Capstone</span></div>
+          </div>
+        </div>
+        <div class="pc-foot">
+          <div class="tech-row"><span class="tb">IoT</span><span class="tb">Embedded Systems</span><span class="tb">Sensors</span><span class="tb">Electronics</span></div>
+          <a href="IOT%20Based%20Smart%20Shopping%20Trolley.pdf" target="_blank" class="pl">View Paper ↗</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CERTIFICATIONS -->
+<section id="certifications">
+  <div class="wrap">
+    <div class="sec-hd c fi">
+      <div class="label">Certifications</div>
+      <h2 class="sh">Credentials and Recognition</h2>
+      <p class="sub">Validated skills across data analytics, process improvement, and technology management.</p>
+    </div>
+    <div class="cert-g">
+
+      <!-- Lean Six Sigma with actual image -->
+      <div class="cert-card fi" onclick="lb('Lean%20Six%20Sigma%20Certificate.png')">
+        <img src="Lean%20Six%20Sigma%20Certificate.png" class="cert-img" alt="Lean Six Sigma Green Belt Certificate" />
+        <div class="cert-body">
+          <div class="cert-iss">IASSC · Process Improvement</div>
+          <div class="cert-name">Lean Six Sigma Green Belt</div>
+          <div class="cert-dt">Quality Management and Process Optimization · Click to enlarge</div>
+        </div>
+      </div>
+
+      <!-- Tableau Udemy -->
+      <div class="cert-card fi d1" onclick="lb('Tableau%20certificate.png')">
+        <img src="Tableau%20certificate.png" class="cert-img" alt="Tableau Certificate" />
+        <div class="cert-body">
+          <div class="cert-iss">Udemy · Data Analytics</div>
+          <div class="cert-name">Hands-On Masterclass in Data Analytics with Tableau</div>
+          <div class="cert-dt">Aug 7, 2025 · 9.5 Hours · Click to enlarge</div>
+        </div>
+      </div>
+
+      <!-- Google GenAI -->
+      <div class="cert-card fi d2" style="cursor:default">
+        <div class="cert-ph" style="background:linear-gradient(135deg,#dbeafe,#bfdbfe)">
+          🤖<span style="color:#2563eb">Google Cloud</span>
+        </div>
+        <div class="cert-body">
+          <div class="cert-iss">Google · Generative AI</div>
+          <div class="cert-name">Introduction to Generative AI</div>
+          <div class="cert-dt">Google Cloud Skills Boost</div>
+        </div>
+      </div>
+
+      <!-- IEEE Media Mentor -->
+      <div class="cert-card fi" onclick="lb('WhatsApp%20Image%202026-05-21%20at%202.50.36%20PM.jpeg')">
+        <img src="WhatsApp%20Image%202026-05-21%20at%202.50.36%20PM.jpeg" class="cert-img" alt="IEEE Certificate of Appreciation, Media Mentor" />
+        <div class="cert-body">
+          <div class="cert-iss">IEEE SIESGST · Bombay Section</div>
+          <div class="cert-name">Certificate of Appreciation, Media Mentor</div>
+          <div class="cert-dt">2022–2023 Executive Committee · Click to enlarge</div>
+        </div>
+      </div>
+
+      <!-- IEEE WiE -->
+      <div class="cert-card fi d1" onclick="lb('WhatsApp%20Image%202026-05-21%20at%202.50.36%20PM%20(1).jpeg')">
+        <img src="WhatsApp%20Image%202026-05-21%20at%202.50.36%20PM%20(1).jpeg" class="cert-img" alt="IEEE WiE Certificate" />
+        <div class="cert-body">
+          <div class="cert-iss">IEEE WiE · SIESGST</div>
+          <div class="cert-name">Certificate of Appreciation, STEM Volunteer</div>
+          <div class="cert-dt">March 2022 · WiE STEM Lectures · Click to enlarge</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- VOLUNTEERING -->
+<section id="volunteering">
+  <div class="wrap">
+    <div class="sec-hd c fi">
+      <div class="label">Giving Back</div>
+      <h2 class="sh">Volunteering and Leadership</h2>
+      <p class="sub">From STEM outreach in Mumbai schools to leading IEEE events, community has always been at the core.</p>
+    </div>
+    <div class="vol-g">
+
+      <div class="vol-card fi">
+        <img src="Women%20in%20TEM.jpeg" alt="Women in TEM Networking Event at ASU" class="vol-img" />
+        <div class="vol-body">
+          <div class="vol-role">Volunteer · Present</div>
+          <h3>Women in TEM, Arizona State University</h3>
+          <p>Supporting technology and engineering management professionals at ASU through event coordination, networking, and community initiatives. Attended and helped organize events like "Networking Beyond LinkedIn," contributing to a more inclusive STEM environment.</p>
+          <div class="vol-per">📅 Aug 2024 – Present</div>
+        </div>
+      </div>
+
+      <div class="vol-card fi d1">
+        <img src="WhatsApp%20Image%202026-05-21%20at%203.33.57%20PM.jpeg" alt="IEEE SIESGST Event" class="vol-img" />
+        <div class="vol-body">
+          <div class="vol-role">Publicity and Networking Lead</div>
+          <h3>IEEE Bombay Section SAC</h3>
+          <p>Led publicity and networking for the IEEE SIESGST branch, serving as technical volunteer for IEEE Asia Pacific Region 10 Symposium (TENSYMP 2022) and managing executive committee media communications.</p>
+          <div class="vol-per">📅 Jan 2022 – Dec 2024</div>
+        </div>
+      </div>
+
+      <div class="vol-card fi d2">
+        <img src="WhatsApp%20Image%202026-05-21%20at%203.29.28%20PM.jpeg" alt="IEEE STEM Lectures" class="vol-img" />
+        <div class="vol-body">
+          <div class="vol-role">STEM Outreach Volunteer</div>
+          <h3>IEEE WiE STEM Lectures</h3>
+          <p>Volunteered for WiE SIESGST's STEM Lectures at schools across Navi Mumbai, delivering science and technology education to inspire the next generation of engineers.</p>
+          <div class="vol-per">📅 March 2022</div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Photo Gallery -->
+    <div class="fi" style="margin-top: 1rem;">
+      <div class="label" style="margin-bottom:1rem; margin-top:3rem">Moments in the Field</div>
+      <div class="gallery wide">
+        <div><img src="WhatsApp%20Image%202026-05-21%20at%205.41.25%20PM.jpeg" class="gimg" alt="Krishnaveni at ASU" onclick="lb('WhatsApp%20Image%202026-05-21%20at%205.41.25%20PM.jpeg')" /></div>
+        <div><img src="WhatsApp%20Image%202026-05-21%20at%205.40.02%20PM.jpeg" class="gimg" alt="ASU classroom with professor" onclick="lb('WhatsApp%20Image%202026-05-21%20at%205.40.02%20PM.jpeg')" /></div>
+        <div><img src="WhatsApp%20Image%202026-05-21%20at%205.40.02%20PM%20(1).jpeg" class="gimg" alt="ASU class group photo" onclick="lb('WhatsApp%20Image%202026-05-21%20at%205.40.02%20PM%20(1).jpeg')" /></div>
+        <div><img src="Women%20in%20TEM.jpeg" class="gimg" alt="Women in TEM event" onclick="lb('Women%20in%20TEM.jpeg')" /></div>
+        <div><img src="WhatsApp%20Image%202026-05-21%20at%203.29.28%20PM.jpeg" class="gimg" alt="IEEE STEM Outreach" onclick="lb('WhatsApp%20Image%202026-05-21%20at%203.29.28%20PM.jpeg')" /></div>
+        <div><img src="WhatsApp%20Image%202026-05-21%20at%203.29.28%20PM%20(1).jpeg" class="gimg" alt="STEM Classroom" onclick="lb('WhatsApp%20Image%202026-05-21%20at%203.29.28%20PM%20(1).jpeg')" /></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="wrap">
+    <div class="con-g">
+      <div class="fi">
+        <div class="label">Get In Touch</div>
+        <h2 class="sh">Let's Work Together</h2>
+        <p class="sub">I'm actively seeking roles in Operations Analysis, Project Coordination, and Strategy and Operations. Let's explore how I can contribute to your team.</p>
+        <div class="con-links">
+          <a href="mailto:krishnavenidoki@gmail.com" class="con-link">
+            <div class="con-link-ic">✉️</div>
+            <div class="con-link-t"><strong>Email</strong><span>krishnavenidoki@gmail.com</span></div>
+          </a>
+          <a href="https://linkedin.com/in/krishnavenidoki" target="_blank" rel="noopener" class="con-link">
+            <div class="con-link-ic">💼</div>
+            <div class="con-link-t"><strong>LinkedIn</strong><span>linkedin.com/in/krishnavenidoki</span></div>
+          </a>
+          <a href="Krishnaveni%20Doki%20-%20Resume.pdf" download class="con-link">
+            <div class="con-link-ic">📄</div>
+            <div class="con-link-t"><strong>Resume</strong><span>Download PDF</span></div>
+          </a>
+        </div>
+      </div>
+      <div class="cta-box fi d2">
+        <div class="cta-hdg">Ready to make an<br><em>impact together?</em></div>
+        <p class="cta-sub">Graduated May 2026 · Tempe, AZ · Open to Relocate<br>Targeting Operations Analyst · Project Coordinator · Strategy and Ops</p>
+        <a href="mailto:krishnavenidoki@gmail.com" class="btn" style="background:#fff;color:#1E293B;display:inline-flex;margin:0 auto">
+          ✉️ Say Hello
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 Krishnaveni Doki &nbsp;·&nbsp; Portfolio built with HTML, CSS and JS &nbsp;·&nbsp; Tempe, Arizona</p>
+</footer>
+
+<!-- Lightbox -->
+<div class="lb" id="lbox" onclick="closelb()">
+  <button class="lb-close" onclick="closelb()">✕</button>
+  <img id="lbox-img" src="" alt="" onclick="event.stopPropagation()" />
+</div>
+
+<!-- Scroll to top -->
+<button class="st" id="st" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<script>
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('v'); });
+}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+document.querySelectorAll('.fi').forEach(el => obs.observe(el));
+
+const secs = document.querySelectorAll('section[id]');
+const nls  = document.querySelectorAll('.nav-links a[href^="#"]');
+window.addEventListener('scroll', () => {
+  const y = window.scrollY;
+  secs.forEach(s => {
+    const top = s.offsetTop - 90;
+    if (y >= top && y < top + s.offsetHeight) {
+      nls.forEach(a => {
+        a.classList.remove('active');
+        if (a.getAttribute('href') === '#' + s.id) a.classList.add('active');
+      });
+    }
+  });
+  document.getElementById('st').classList.toggle('on', y > 400);
+});
+
+function toggleNav() {
+  document.getElementById('navlinks').classList.toggle('open');
+}
+document.querySelectorAll('.nav-links a').forEach(a =>
+  a.addEventListener('click', () => document.getElementById('navlinks').classList.remove('open'))
+);
+
+function fp(cat, btn) {
+  document.querySelectorAll('.fbtn').forEach(b => b.classList.remove('on'));
+  btn.classList.add('on');
+  document.querySelectorAll('#proj-g .pc').forEach(card => {
+    card.style.display = (cat === 'all' || card.dataset.cat.includes(cat)) ? '' : 'none';
+  });
+}
+
+function lb(src) {
+  document.getElementById('lbox-img').src = decodeURIComponent(src);
+  document.getElementById('lbox').classList.add('on');
+  document.body.style.overflow = 'hidden';
+}
+function closelb() {
+  document.getElementById('lbox').classList.remove('on');
+  document.body.style.overflow = '';
+}
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closelb(); });
+
+function animateCount(el) {
+  const isDecimal = el.dataset.decimal === 'true';
+  const target = parseFloat(el.dataset.count);
+  const suffix = el.dataset.suffix || '';
+  const dur = 1800;
+  let start = null;
+  const step = ts => {
+    if (!start) start = ts;
+    const p = Math.min((ts - start) / dur, 1);
+    const ease = 1 - Math.pow(1 - p, 3);
+    el.textContent = isDecimal
+      ? (ease * target).toFixed(1)
+      : Math.floor(ease * target) + (p >= 1 ? suffix : '');
+    if (p < 1) requestAnimationFrame(step);
+  };
+  requestAnimationFrame(step);
+}
+const statsObs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.querySelectorAll('[data-count]').forEach(animateCount);
+      statsObs.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.5 });
+const hs = document.querySelector('.hero-stats');
+if (hs) statsObs.observe(hs);
+</script>
+</body>
+</html>
