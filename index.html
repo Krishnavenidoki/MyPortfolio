@@ -333,6 +333,14 @@
     .pl { display: inline-flex; align-items: center; gap: .35rem; font-size: .875rem; font-weight: 600; color: var(--accent); text-decoration: none; transition: gap .18s; }
     .pl:hover { gap: .6rem; }
     .pl-na { color: var(--muted); font-size: .875rem; font-style: italic; }
+    .pc-thumb-img {
+      position: absolute; inset: 0; width: 100%; height: 100%;
+      object-fit: cover; object-position: top left; z-index: 0; display: block;
+    }
+    .pc-thumb.has-img::after {
+      content: ''; position: absolute; inset: 0; z-index: 1;
+      background: linear-gradient(to bottom, rgba(0,0,0,.18) 0%, rgba(0,0,0,.52) 100%);
+    }
 
     /* CERTIFICATIONS */
     #certifications { background: var(--bg); }
@@ -834,17 +842,10 @@
 
       <!-- MegaMart -->
       <div class="pc fi" data-cat="tableau analytics">
-        <div class="pc-thumb" style="background:linear-gradient(135deg,#F97316,#EF4444)">
+        <div class="pc-thumb has-img">
+          <img class="pc-thumb-img" src="MegaMart%20Sales%20dashboard%20(2).png" alt="MegaMart Sales Dashboard" />
           <div class="pc-thumb-icon">🛒</div>
           <div class="pc-thumb-label">Sales Dashboard</div>
-          <div class="pc-bars">
-            <div class="pc-bar" style="height:60px"></div><div class="pc-bar" style="height:80px"></div>
-            <div class="pc-bar" style="height:45px"></div><div class="pc-bar" style="height:90px"></div>
-            <div class="pc-bar" style="height:70px"></div><div class="pc-bar" style="height:100px"></div>
-          </div>
-          <svg class="pc-line-chart" viewBox="0 0 300 100" preserveAspectRatio="none">
-            <polyline points="0,80 60,55 120,65 180,30 240,45 300,20"/>
-          </svg>
         </div>
         <div class="pc-top"><span class="pc-cat">Tableau · Analytics</span><span class="pc-yr">Jun–Jul 2025</span></div>
         <div class="pc-body">
@@ -920,18 +921,10 @@
 
       <!-- GreatFit -->
       <div class="pc fi" data-cat="tableau analytics">
-        <div class="pc-thumb" style="background:linear-gradient(135deg,#0D9488,#0EA5E9)">
+        <div class="pc-thumb has-img">
+          <img class="pc-thumb-img" src="GreatFit%20Review%20Dasboard.png" alt="GreatFit Review Dashboard" />
           <div class="pc-thumb-icon">⭐</div>
           <div class="pc-thumb-label">Review Analytics</div>
-          <div class="pc-dots-row">
-            <div class="pc-dot"></div><div class="pc-dot"></div><div class="pc-dot"></div>
-            <div class="pc-dot"></div><div class="pc-dot"></div><div class="pc-dot"></div>
-          </div>
-          <div class="pc-bars">
-            <div class="pc-bar" style="height:70px"></div><div class="pc-bar" style="height:85px"></div>
-            <div class="pc-bar" style="height:55px"></div><div class="pc-bar" style="height:90px"></div>
-            <div class="pc-bar" style="height:75px"></div>
-          </div>
         </div>
         <div class="pc-top"><span class="pc-cat">Tableau · Analytics</span><span class="pc-yr">2025</span></div>
         <div class="pc-body">
@@ -949,16 +942,10 @@
 
       <!-- Meta Stock -->
       <div class="pc fi d1" data-cat="tableau analytics">
-        <div class="pc-thumb" style="background:linear-gradient(135deg,#0F172A,#334155)">
+        <div class="pc-thumb has-img">
+          <img class="pc-thumb-img" src="Meta%20Stock%20Dashboard%20(2).png" alt="Meta Stock Dashboard" />
           <div class="pc-thumb-icon">📉</div>
           <div class="pc-thumb-label">Financial Analytics</div>
-          <svg class="pc-line-chart" style="opacity:.25" viewBox="0 0 300 100" preserveAspectRatio="none">
-            <polyline points="0,50 40,40 80,60 120,35 160,55 200,25 240,40 300,15"/>
-          </svg>
-          <div class="pc-bars">
-            <div class="pc-bar" style="height:45px"></div><div class="pc-bar" style="height:70px"></div>
-            <div class="pc-bar" style="height:55px"></div><div class="pc-bar" style="height:80px"></div>
-          </div>
         </div>
         <div class="pc-top"><span class="pc-cat">Tableau · Finance</span><span class="pc-yr">2025</span></div>
         <div class="pc-body">
@@ -976,14 +963,10 @@
 
       <!-- Olist -->
       <div class="pc fi d2" data-cat="tableau analytics">
-        <div class="pc-thumb" style="background:linear-gradient(135deg,#059669,#10B981)">
+        <div class="pc-thumb has-img">
+          <img class="pc-thumb-img" src="Olist%20Dashboard.png" alt="Olist Dashboard" />
           <div class="pc-thumb-icon">🛍️</div>
           <div class="pc-thumb-label">E-Commerce Analytics</div>
-          <div class="pc-bars">
-            <div class="pc-bar" style="height:55px"></div><div class="pc-bar" style="height:80px"></div>
-            <div class="pc-bar" style="height:65px"></div><div class="pc-bar" style="height:95px"></div>
-            <div class="pc-bar" style="height:75px"></div><div class="pc-bar" style="height:85px"></div>
-          </div>
         </div>
         <div class="pc-top"><span class="pc-cat">Tableau · E-Commerce</span><span class="pc-yr">2025</span></div>
         <div class="pc-body">
@@ -1001,17 +984,10 @@
 
       <!-- Park City -->
       <div class="pc fi" data-cat="tableau analytics">
-        <div class="pc-thumb" style="background:linear-gradient(135deg,#65A30D,#84CC16)">
+        <div class="pc-thumb has-img">
+          <img class="pc-thumb-img" src="Park%20City%20Dashboard.png" alt="Park City Dashboard" />
           <div class="pc-thumb-icon">🗺️</div>
           <div class="pc-thumb-label">Urban Analytics</div>
-          <div class="pc-dots-row">
-            <div class="pc-dot"></div><div class="pc-dot" style="opacity:.6"></div><div class="pc-dot" style="opacity:.4"></div>
-            <div class="pc-dot" style="opacity:.8"></div><div class="pc-dot" style="opacity:.3"></div>
-          </div>
-          <div class="pc-bars">
-            <div class="pc-bar" style="height:60px"></div><div class="pc-bar" style="height:75px"></div>
-            <div class="pc-bar" style="height:50px"></div><div class="pc-bar" style="height:85px"></div>
-          </div>
         </div>
         <div class="pc-top"><span class="pc-cat">Tableau · Urban Analytics</span><span class="pc-yr">2025</span></div>
         <div class="pc-body">
@@ -1102,8 +1078,8 @@
       </div>
 
       <!-- IEEE Media Mentor -->
-      <div class="cert-card fi" onclick="lb('WhatsApp%20Image%202026-05-21%20at%202.50.36%20PM.jpeg')">
-        <img src="WhatsApp%20Image%202026-05-21%20at%202.50.36%20PM.jpeg" class="cert-img" alt="IEEE Certificate of Appreciation, Media Mentor" />
+      <div class="cert-card fi" onclick="lb('Media%20Mentor%20certificate.jpeg')">
+        <img src="Media%20Mentor%20certificate.jpeg" class="cert-img" alt="IEEE Certificate of Appreciation, Media Mentor" />
         <div class="cert-body">
           <div class="cert-iss">IEEE SIESGST · Bombay Section</div>
           <div class="cert-name">Certificate of Appreciation, Media Mentor</div>
@@ -1112,8 +1088,8 @@
       </div>
 
       <!-- IEEE WiE -->
-      <div class="cert-card fi d1" onclick="lb('WhatsApp%20Image%202026-05-21%20at%202.50.36%20PM%20(1).jpeg')">
-        <img src="WhatsApp%20Image%202026-05-21%20at%202.50.36%20PM%20(1).jpeg" class="cert-img" alt="IEEE WiE Certificate" />
+      <div class="cert-card fi d1" onclick="lb('Wie%20Certificate.jpeg')">
+        <img src="Wie%20Certificate.jpeg" class="cert-img" alt="IEEE WiE Certificate" />
         <div class="cert-body">
           <div class="cert-iss">IEEE WiE · SIESGST</div>
           <div class="cert-name">Certificate of Appreciation, STEM Volunteer</div>
@@ -1146,7 +1122,7 @@
       </div>
 
       <div class="vol-card fi d1">
-        <img src="WhatsApp%20Image%202026-05-21%20at%203.33.57%20PM.jpeg" alt="IEEE SIESGST Event" class="vol-img" />
+        <img src="img5.jpeg" alt="IEEE SIESGST Event" class="vol-img" />
         <div class="vol-body">
           <div class="vol-role">Publicity and Networking Lead</div>
           <h3>IEEE Bombay Section SAC</h3>
@@ -1156,7 +1132,7 @@
       </div>
 
       <div class="vol-card fi d2">
-        <img src="WhatsApp%20Image%202026-05-21%20at%203.29.28%20PM.jpeg" alt="IEEE STEM Lectures" class="vol-img" />
+        <img src="img4.jpeg" alt="IEEE STEM Lectures" class="vol-img" />
         <div class="vol-body">
           <div class="vol-role">STEM Outreach Volunteer</div>
           <h3>IEEE WiE STEM Lectures</h3>
@@ -1171,12 +1147,12 @@
     <div class="fi" style="margin-top: 1rem;">
       <div class="label" style="margin-bottom:1rem; margin-top:3rem">Moments in the Field</div>
       <div class="gallery wide">
-        <div><img src="WhatsApp%20Image%202026-05-21%20at%205.41.25%20PM.jpeg" class="gimg" alt="Krishnaveni at ASU" onclick="lb('WhatsApp%20Image%202026-05-21%20at%205.41.25%20PM.jpeg')" /></div>
-        <div><img src="WhatsApp%20Image%202026-05-21%20at%205.40.02%20PM.jpeg" class="gimg" alt="ASU classroom with professor" onclick="lb('WhatsApp%20Image%202026-05-21%20at%205.40.02%20PM.jpeg')" /></div>
-        <div><img src="WhatsApp%20Image%202026-05-21%20at%205.40.02%20PM%20(1).jpeg" class="gimg" alt="ASU class group photo" onclick="lb('WhatsApp%20Image%202026-05-21%20at%205.40.02%20PM%20(1).jpeg')" /></div>
+        <div><img src="img8.jpeg" class="gimg" alt="Krishnaveni at ASU" onclick="lb('img8.jpeg')" /></div>
+        <div><img src="img7.jpeg" class="gimg" alt="ASU classroom with professor" onclick="lb('img7.jpeg')" /></div>
+        <div><img src="img6.jpeg" class="gimg" alt="ASU class group photo" onclick="lb('img6.jpeg')" /></div>
         <div><img src="Women%20in%20TEM.jpeg" class="gimg" alt="Women in TEM event" onclick="lb('Women%20in%20TEM.jpeg')" /></div>
-        <div><img src="WhatsApp%20Image%202026-05-21%20at%203.29.28%20PM.jpeg" class="gimg" alt="IEEE STEM Outreach" onclick="lb('WhatsApp%20Image%202026-05-21%20at%203.29.28%20PM.jpeg')" /></div>
-        <div><img src="WhatsApp%20Image%202026-05-21%20at%203.29.28%20PM%20(1).jpeg" class="gimg" alt="STEM Classroom" onclick="lb('WhatsApp%20Image%202026-05-21%20at%203.29.28%20PM%20(1).jpeg')" /></div>
+        <div><img src="img4.jpeg" class="gimg" alt="IEEE STEM Outreach" onclick="lb('img4.jpeg')" /></div>
+        <div><img src="img3.jpeg" class="gimg" alt="STEM Classroom" onclick="lb('img3.jpeg')" /></div>
       </div>
     </div>
   </div>
