@@ -6,7 +6,7 @@
   <title>Krishnaveni Doki | Portfolio</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,700;0,800;1,500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=DM+Sans:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -39,8 +39,8 @@
       height: 100%; display: flex; align-items: center; justify-content: space-between;
     }
     .nav-logo {
-      font-family: 'Playfair Display', serif; font-weight: 800; font-size: 1.4rem;
-      color: var(--text); text-decoration: none; letter-spacing: -.5px;
+      font-family: 'DM Sans', sans-serif; font-weight: 800; font-size: 1.35rem;
+      color: var(--text); text-decoration: none; letter-spacing: -.02em;
     }
     .nav-links { display: flex; list-style: none; gap: 1.75rem; align-items: center; }
     .nav-links a {
@@ -62,7 +62,7 @@
     .wrap { max-width: 1200px; margin: 0 auto; }
     .label { font-size: .72rem; font-weight: 700; letter-spacing: .15em; text-transform: uppercase; color: var(--accent); margin-bottom: .75rem; }
     .sh {
-      font-family: 'Playfair Display', serif;
+      font-family: 'DM Sans', sans-serif;
       font-size: clamp(2rem,4vw,2.75rem); font-weight: 800;
       color: var(--text); line-height: 1.15; margin-bottom: 1rem;
     }
@@ -89,48 +89,61 @@
     /* HERO */
     #hero {
       min-height: 100vh; display: flex; align-items: center;
-      padding-top: calc(var(--nav) + 2rem);
-      background: linear-gradient(135deg, #f8fafc 0%, #eef2ff 55%, #f8fafc 100%);
+      padding: calc(var(--nav) + 5rem) clamp(1rem,3.5vw,5rem) 5rem;
+      background: #fff;
       position: relative; overflow: hidden;
     }
-    #hero::before {
-      content: ''; position: absolute; width: 700px; height: 700px;
-      background: radial-gradient(circle, rgba(99,102,241,.08) 0%, transparent 70%);
-      top: -150px; right: -150px; border-radius: 50%; pointer-events: none;
+    .hero-glow {
+      position: absolute; border-radius: 50%;
+      pointer-events: none; transform: translate(-50%, -50%); will-change: left, top;
     }
-    #hero::after {
-      content: ''; position: absolute; width: 450px; height: 450px;
-      background: radial-gradient(circle, rgba(124,58,237,.06) 0%, transparent 70%);
-      bottom: -80px; left: 8%; border-radius: 50%; pointer-events: none;
+    .hero-glow-1 {
+      width: 960px; height: 960px;
+      background: radial-gradient(circle, rgba(124,58,237,.2) 0%, transparent 65%);
+      filter: blur(80px);
+    }
+    .hero-glow-2 {
+      width: 560px; height: 560px;
+      background: radial-gradient(circle, rgba(236,72,153,.16) 0%, transparent 65%);
+      filter: blur(56px);
     }
     .hero-wrap {
-      max-width: 1200px; margin: 0 auto;
-      display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center;
+      max-width: 1500px; width: 100%; margin: 0 auto; position: relative; z-index: 1;
+      display: flex; flex-direction: column; align-items: center; text-align: center;
     }
     .greeting {
       font-size: .875rem; font-weight: 700; color: var(--accent);
-      letter-spacing: .06em; text-transform: uppercase; margin-bottom: 1rem;
-      display: flex; align-items: center; gap: .6rem;
+      letter-spacing: .06em; text-transform: uppercase; margin-bottom: 1.5rem;
+      display: flex; align-items: center; justify-content: center; gap: .6rem;
     }
     .greeting::before { content: ''; width: 30px; height: 2px; background: var(--accent); display: inline-block; }
     .hero-name {
-      font-family: 'Playfair Display', serif; font-size: clamp(2.6rem,5vw,4.1rem);
-      font-weight: 800; line-height: 1.08; color: var(--text);
-      margin-bottom: 1.25rem; letter-spacing: -.025em;
+      font-family: 'DM Sans', sans-serif; font-size: clamp(3rem,13vw,13rem);
+      font-weight: 800; line-height: 0.95; color: var(--text);
+      margin-bottom: 2.5rem; letter-spacing: -.03em; width: 100%;
     }
     .hero-name span {
       background: linear-gradient(135deg, var(--accent), var(--accent2));
       -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
     }
-    .hero-role { font-size: 1.15rem; font-weight: 600; color: var(--text); margin-bottom: .75rem; }
+    .hero-role { font-size: clamp(1rem,1.5vw,1.25rem); font-weight: 600; color: var(--text); margin-bottom: .75rem; }
     .hero-desc {
       font-size: 1.0625rem; color: var(--muted); line-height: 1.78;
-      margin-bottom: 2.5rem; max-width: 480px;
+      margin-bottom: 2.5rem; max-width: 640px; margin-left: auto; margin-right: auto;
     }
-    .hero-acts { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 3rem; }
-    .hero-stats { display: flex; gap: 2.25rem; flex-wrap: wrap; }
-    .stat-n { font-size: 1.8rem; font-weight: 900; color: var(--text); line-height: 1; letter-spacing: -.04em; }
-    .stat-l { font-size: .8125rem; color: var(--muted); margin-top: .2rem; }
+    .hero-acts { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 0; justify-content: center; }
+    .hero-stats {
+      display: flex; gap: 0; flex-wrap: wrap; justify-content: center;
+      width: 100%; margin-top: 4rem;
+      border-top: 1px solid var(--border); padding-top: 2.5rem;
+    }
+    .hero-stats > div {
+      flex: 1; min-width: 110px; padding: 0 1.5rem;
+      border-right: 1px solid var(--border);
+    }
+    .hero-stats > div:last-child { border-right: none; }
+    .stat-n { font-size: clamp(1.5rem,2.2vw,2rem); font-weight: 900; color: var(--text); line-height: 1; letter-spacing: -.04em; }
+    .stat-l { font-size: .8125rem; color: var(--muted); margin-top: .35rem; }
 
     /* avatar */
     .av-wrap { display: flex; justify-content: center; align-items: center; position: relative; }
@@ -414,7 +427,7 @@
     .con-link-t strong { display: block; font-weight: 600; font-size: .9375rem; }
     .con-link-t span { font-size: .875rem; color: #94A3B8; }
     .cta-box { text-align: center; }
-    .cta-hdg { font-family: 'Playfair Display',serif; font-size: clamp(1.75rem,3vw,2.5rem); font-weight: 700; color: #fff; line-height: 1.2; margin-bottom: 1.4rem; }
+    .cta-hdg { font-family: 'DM Sans', sans-serif; font-size: clamp(1.75rem,3vw,2.5rem); font-weight: 700; color: #fff; line-height: 1.2; margin-bottom: 1.4rem; }
     .cta-hdg em { font-style: italic; color: #818CF8; }
     .cta-sub { color: #94A3B8; font-size: 1rem; margin-bottom: 2rem; line-height: 1.72; }
 
@@ -434,6 +447,31 @@
     }
     .lb-close:hover { background: rgba(255,255,255,.28); }
 
+    /* CUSTOM CURSOR */
+    @media (hover: hover) and (pointer: fine) {
+      * { cursor: none !important; }
+      .cursor-dot {
+        width: 7px; height: 7px; border-radius: 50%;
+        background: var(--accent); position: fixed;
+        pointer-events: none; z-index: 9999;
+        transform: translate(-50%, -50%);
+        transition: width .22s, height .22s, opacity .3s;
+        opacity: 0;
+      }
+      .cursor-ring {
+        width: 36px; height: 36px; border-radius: 50%;
+        border: 1.5px solid var(--accent); position: fixed;
+        pointer-events: none; z-index: 9998;
+        transform: translate(-50%, -50%);
+        transition: width .3s, height .3s, opacity .3s, background .3s;
+        opacity: 0;
+      }
+      .cursor-dot.cur-on { opacity: 1; }
+      .cursor-ring.cur-on { opacity: .6; }
+      .cursor-dot.cur-hov { width: 0; height: 0; opacity: 0; }
+      .cursor-ring.cur-hov { width: 52px; height: 52px; opacity: 1; background: rgba(124,58,237,.08); }
+    }
+
     /* SCROLL TOP */
     .st {
       position: fixed; bottom: 2rem; right: 2rem; width: 44px; height: 44px;
@@ -451,11 +489,12 @@
     }
     @media (max-width: 768px) {
       section { padding: 4rem 1.25rem; }
-      .hero-wrap { grid-template-columns: 1fr; text-align: center; gap: 3rem; }
+      .hero-wrap { text-align: center; }
       .greeting { justify-content: center; }
       .hero-desc { margin: 0 auto 2.5rem; }
       .hero-acts { justify-content: center; }
-      .hero-stats { justify-content: center; }
+      .hero-stats { margin-top: 2.5rem; padding-top: 1.75rem; }
+      .hero-stats > div { flex: 1 1 calc(50% - 3rem); border-right: none; padding: .75rem 1rem; }
       .av-ring { width: 240px; height: 240px; }
       .badge-tl { left: 0; } .badge-br { right: 0; }
       .about-g { grid-template-columns: 1fr; gap: 2.5rem; }
@@ -492,6 +531,9 @@
 </head>
 <body>
 
+<div class="cursor-dot" id="cdot"></div>
+<div class="cursor-ring" id="cring"></div>
+
 <!-- NAV -->
 <nav id="nav">
   <div class="nav-in">
@@ -513,6 +555,8 @@
 
 <!-- HERO -->
 <section id="hero">
+  <div class="hero-glow hero-glow-1" id="hg1"></div>
+  <div class="hero-glow hero-glow-2" id="hg2"></div>
   <div class="hero-wrap">
     <div class="hero-text">
       <div class="greeting">MS Engineering Management, Class of 2026</div>
@@ -531,23 +575,6 @@
         <div><div class="stat-n" data-count="8" data-suffix="+">8+</div><div class="stat-l">Data Projects</div></div>
         <div><div class="stat-n" data-count="4.0" data-decimal="true">4.0</div><div class="stat-l">GPA at ASU</div></div>
         <div><div class="stat-n">LSS</div><div class="stat-l">Green Belt</div></div>
-      </div>
-    </div>
-    <div class="av-wrap">
-      <div style="position:relative">
-        <div class="av-ring">
-          <div class="av-inner">
-            <img class="av-photo" src="Krishnaveni%20Doki.jpeg" alt="Krishnaveni Doki" />
-          </div>
-        </div>
-        <div class="badge badge-tl">
-          <div class="badge-icon" style="background:#EEF2FF">📊</div>
-          <span>Tableau Certified</span>
-        </div>
-        <div class="badge badge-br">
-          <div class="badge-icon" style="background:#F0FDF4">🎯</div>
-          <span>Lean Six Sigma Green Belt</span>
-        </div>
       </div>
     </div>
   </div>
@@ -881,7 +908,7 @@
         </div>
         <div class="pc-foot">
           <div class="tech-row"><span class="tb">Tableau</span><span class="tb">SQL</span><span class="tb">Excel</span><span class="tb">KPI Design</span></div>
-          <a href="MegaMart%20Sales%20Dashboard.twbx" download class="pl">Download ↗</a>
+          <a href="https://public.tableau.com/views/MegaMartSalesDashboard_17532174754770/MegaMartSalesdashboard" target="_blank" rel="noopener" class="pl">View Dashboard ↗</a>
         </div>
       </div>
 
@@ -959,7 +986,7 @@
         </div>
         <div class="pc-foot">
           <div class="tech-row"><span class="tb">Tableau</span><span class="tb">Customer Analytics</span><span class="tb">Sentiment</span></div>
-          <a href="GreatFit%20Review%20Dasboard.twbx" download class="pl">Download ↗</a>
+          <a href="https://public.tableau.com/views/GreatFitReviewDasboard/Dashboard1" target="_blank" rel="noopener" class="pl">View Dashboard ↗</a>
         </div>
       </div>
 
@@ -980,7 +1007,7 @@
         </div>
         <div class="pc-foot">
           <div class="tech-row"><span class="tb">Tableau</span><span class="tb">Financial Data</span><span class="tb">Time-Series</span></div>
-          <a href="Meta%20Stock%20dashboard.twbx" download class="pl">Download ↗</a>
+          <a href="https://public.tableau.com/views/MetaStockdashboard/MetaStockDashboard" target="_blank" rel="noopener" class="pl">View Dashboard ↗</a>
         </div>
       </div>
 
@@ -1001,7 +1028,7 @@
         </div>
         <div class="pc-foot">
           <div class="tech-row"><span class="tb">Tableau</span><span class="tb">E-Commerce</span><span class="tb">Supply Chain</span></div>
-          <a href="Olist%20Dashboard.twbx" download class="pl">Download ↗</a>
+          <a href="https://public.tableau.com/views/OlistDashboard_17538115861120/Dashboard1" target="_blank" rel="noopener" class="pl">View Dashboard ↗</a>
         </div>
       </div>
 
@@ -1022,7 +1049,7 @@
         </div>
         <div class="pc-foot">
           <div class="tech-row"><span class="tb">Tableau</span><span class="tb">Geospatial</span><span class="tb">Urban Planning</span></div>
-          <a href="Park%20City%20Dashboard.twbx" download class="pl">Download ↗</a>
+          <a href="https://public.tableau.com/views/ParkCityDashboard/Dashboard1" target="_blank" rel="noopener" class="pl">View Dashboard ↗</a>
         </div>
       </div>
 
@@ -1316,6 +1343,58 @@ function closelb() {
   document.body.style.overflow = '';
 }
 document.addEventListener('keydown', e => { if (e.key === 'Escape') closelb(); });
+
+// Hero cursor glow
+(function() {
+  const hero = document.getElementById('hero');
+  const g1 = document.getElementById('hg1');
+  const g2 = document.getElementById('hg2');
+  if (!hero || !g1 || !g2) return;
+  let tx = window.innerWidth / 2, ty = window.innerHeight / 2;
+  let x1 = tx, y1 = ty, x2 = tx, y2 = ty;
+  g1.style.left = tx + 'px'; g1.style.top = ty + 'px';
+  g2.style.left = tx + 'px'; g2.style.top = ty + 'px';
+  hero.addEventListener('mousemove', e => {
+    const r = hero.getBoundingClientRect();
+    tx = e.clientX - r.left; ty = e.clientY - r.top;
+  });
+  (function tick() {
+    x1 += (tx - x1) * 0.055; y1 += (ty - y1) * 0.055;
+    x2 += (tx - x2) * 0.11;  y2 += (ty - y2) * 0.11;
+    g1.style.left = x1 + 'px'; g1.style.top = y1 + 'px';
+    g2.style.left = x2 + 'px'; g2.style.top = y2 + 'px';
+    requestAnimationFrame(tick);
+  })();
+})();
+
+// Custom cursor (desktop only)
+(function() {
+  if (!window.matchMedia('(hover: hover) and (pointer: fine)').matches) return;
+  const dot = document.getElementById('cdot');
+  const ring = document.getElementById('cring');
+  let mx = 0, my = 0, rx = 0, ry = 0;
+
+  document.addEventListener('mousemove', e => {
+    mx = e.clientX; my = e.clientY;
+    dot.style.left = mx + 'px'; dot.style.top = my + 'px';
+    dot.classList.add('cur-on'); ring.classList.add('cur-on');
+  });
+  document.addEventListener('mouseleave', () => {
+    dot.classList.remove('cur-on'); ring.classList.remove('cur-on');
+  });
+
+  (function tick() {
+    rx += (mx - rx) * 0.1;
+    ry += (my - ry) * 0.1;
+    ring.style.left = rx + 'px'; ring.style.top = ry + 'px';
+    requestAnimationFrame(tick);
+  })();
+
+  document.querySelectorAll('a, button, .fbtn, .pc, .cert-card, .vol-card, .exp-card, .tl-card, .con-link').forEach(el => {
+    el.addEventListener('mouseenter', () => { dot.classList.add('cur-hov'); ring.classList.add('cur-hov'); });
+    el.addEventListener('mouseleave', () => { dot.classList.remove('cur-hov'); ring.classList.remove('cur-hov'); });
+  });
+})();
 
 function animateCount(el) {
   const isDecimal = el.dataset.decimal === 'true';
