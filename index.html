@@ -89,9 +89,8 @@
     /* HERO */
     #hero {
       min-height: 100vh; display: flex; align-items: center;
-      padding: calc(var(--nav) + 5rem) clamp(1rem,3.5vw,5rem) 5rem;
-      background: #fff;
-      position: relative; overflow: hidden;
+      padding: calc(var(--nav) + 3rem) clamp(1.5rem,5vw,6rem) 3rem;
+      background: #fff; position: relative; overflow: hidden;
     }
     .hero-glow {
       position: absolute; border-radius: 50%;
@@ -99,51 +98,49 @@
     }
     .hero-glow-1 {
       width: 960px; height: 960px;
-      background: radial-gradient(circle, rgba(124,58,237,.2) 0%, transparent 65%);
+      background: radial-gradient(circle, rgba(79,70,229,.18) 0%, transparent 65%);
       filter: blur(80px);
     }
     .hero-glow-2 {
       width: 560px; height: 560px;
-      background: radial-gradient(circle, rgba(236,72,153,.16) 0%, transparent 65%);
+      background: radial-gradient(circle, rgba(124,58,237,.14) 0%, transparent 65%);
       filter: blur(56px);
     }
     .hero-wrap {
-      max-width: 1500px; width: 100%; margin: 0 auto; position: relative; z-index: 1;
-      display: flex; flex-direction: column; align-items: center; text-align: center;
+      width: 100%; max-width: 1300px; margin: 0 auto;
+      display: grid; grid-template-columns: 1.2fr 1fr;
+      grid-template-rows: 1fr auto; gap: 0 4rem;
+      position: relative; z-index: 1;
     }
-    .greeting {
-      font-size: .875rem; font-weight: 700; color: var(--accent);
-      letter-spacing: .06em; text-transform: uppercase; margin-bottom: 1.5rem;
-      display: flex; align-items: center; justify-content: center; gap: .6rem;
+    .hero-left {
+      display: flex; flex-direction: column;
+      justify-content: center; gap: .1rem;
+      padding: 2rem 0;
     }
-    .greeting::before { content: ''; width: 30px; height: 2px; background: var(--accent); display: inline-block; }
-    .hero-name {
-      font-family: 'DM Sans', sans-serif; font-size: clamp(3rem,13vw,13rem);
-      font-weight: 800; line-height: 0.95; color: var(--text);
-      margin-bottom: 2.5rem; letter-spacing: -.03em; width: 100%;
+    .hero-right {
+      display: flex; flex-direction: column; justify-content: center;
+      padding: 2rem 0 2rem 4rem; border-left: 1px solid var(--border);
     }
-    .hero-name span {
+    #hnTop, #hnBot {
+      font-family: 'DM Sans', sans-serif; font-size: clamp(2.9rem,7.5vw,8rem);
+      font-weight: 800; line-height: 0.93; letter-spacing: -.03em; display: block;
+      color: var(--text);
+    }
+    #hnBot {
       background: linear-gradient(135deg, var(--accent), var(--accent2));
       -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
     }
-    .hero-role { font-size: clamp(1rem,1.5vw,1.25rem); font-weight: 600; color: var(--text); margin-bottom: .75rem; }
-    .hero-desc {
-      font-size: 1.0625rem; color: var(--muted); line-height: 1.78;
-      margin-bottom: 2.5rem; max-width: 640px; margin-left: auto; margin-right: auto;
-    }
-    .hero-acts { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 0; justify-content: center; }
+    .hero-role { font-size: 1rem; font-weight: 600; color: var(--text); margin-bottom: .75rem; }
+    .hero-desc { font-size: .9375rem; color: var(--muted); line-height: 1.75; margin-bottom: 2rem; }
+    .hero-acts { display: flex; gap: .75rem; flex-wrap: wrap; }
     .hero-stats {
-      display: flex; gap: 0; flex-wrap: wrap; justify-content: center;
-      width: 100%; margin-top: 4rem;
-      border-top: 1px solid var(--border); padding-top: 2.5rem;
+      grid-column: 1 / -1; display: flex; justify-content: center; gap: 0;
+      border-top: 1px solid var(--border); padding-top: 2rem; margin-top: 5rem;
     }
-    .hero-stats > div {
-      flex: 1; min-width: 110px; padding: 0 1.5rem;
-      border-right: 1px solid var(--border);
-    }
+    .hero-stats > div { padding: 0 2.5rem; border-right: 1px solid var(--border); text-align: center; }
     .hero-stats > div:last-child { border-right: none; }
-    .stat-n { font-size: clamp(1.5rem,2.2vw,2rem); font-weight: 900; color: var(--text); line-height: 1; letter-spacing: -.04em; }
-    .stat-l { font-size: .8125rem; color: var(--muted); margin-top: .35rem; }
+    .stat-n { font-size: 1.6rem; font-weight: 900; color: var(--text); line-height: 1; letter-spacing: -.04em; }
+    .stat-l { font-size: .8rem; color: var(--muted); margin-top: .25rem; }
 
     /* avatar */
     .av-wrap { display: flex; justify-content: center; align-items: center; position: relative; }
@@ -489,12 +486,12 @@
     }
     @media (max-width: 768px) {
       section { padding: 4rem 1.25rem; }
-      .hero-wrap { text-align: center; }
-      .greeting { justify-content: center; }
-      .hero-desc { margin: 0 auto 2.5rem; }
-      .hero-acts { justify-content: center; }
-      .hero-stats { margin-top: 2.5rem; padding-top: 1.75rem; }
-      .hero-stats > div { flex: 1 1 calc(50% - 3rem); border-right: none; padding: .75rem 1rem; }
+      .hero-wrap { grid-template-columns: 1fr; gap: 2rem 0; }
+      .hero-left { padding: 1.5rem 0 0; }
+      .hero-right { border-left: none; padding: 0; }
+      #hnTop, #hnBot { font-size: clamp(2.5rem,14vw,5rem); }
+      .hero-stats { flex-wrap: wrap; margin-top: 1.25rem; padding-top: 1.25rem; }
+      .hero-stats > div { flex: 1 1 40%; border-right: none; padding: .4rem 0; }
       .av-ring { width: 240px; height: 240px; }
       .badge-tl { left: 0; } .badge-br { right: 0; }
       .about-g { grid-template-columns: 1fr; gap: 2.5rem; }
@@ -558,24 +555,23 @@
   <div class="hero-glow hero-glow-1" id="hg1"></div>
   <div class="hero-glow hero-glow-2" id="hg2"></div>
   <div class="hero-wrap">
-    <div class="hero-text">
-      <div class="greeting">MS Engineering Management, Class of 2026</div>
-      <h1 class="hero-name">Krishnaveni<br><span>Doki</span></h1>
+    <div class="hero-left">
+      <div id="hnTop">Krishnaveni</div>
+      <div id="hnBot">Doki</div>
+    </div>
+    <div class="hero-right">
       <p class="hero-role">Operations &amp; Project Management Professional</p>
-      <p class="hero-desc">
-        Bridging engineering precision with strategic business execution,
-        turning data into decisions and complexity into clarity.
-      </p>
+      <p class="hero-desc">Bridging engineering precision with strategic business execution, turning data into decisions and complexity into clarity.</p>
       <div class="hero-acts">
         <a href="Krishnaveni%20Doki%20-%20Resume.pdf" download class="btn btn-p">↓ Download Resume</a>
         <a href="#contact" class="btn btn-s">Let's Connect →</a>
       </div>
-      <div class="hero-stats">
-        <div><div class="stat-n" data-count="3" data-suffix="+">3+</div><div class="stat-l">Years Experience</div></div>
-        <div><div class="stat-n" data-count="8" data-suffix="+">8+</div><div class="stat-l">Data Projects</div></div>
-        <div><div class="stat-n" data-count="4.0" data-decimal="true">4.0</div><div class="stat-l">GPA at ASU</div></div>
-        <div><div class="stat-n">LSS</div><div class="stat-l">Green Belt</div></div>
-      </div>
+    </div>
+    <div class="hero-stats">
+      <div><div class="stat-n" data-count="3" data-suffix="+">3+</div><div class="stat-l">Years Experience</div></div>
+      <div><div class="stat-n" data-count="8" data-suffix="+">8+</div><div class="stat-l">Data Projects</div></div>
+      <div><div class="stat-n" data-count="4.0" data-decimal="true">4.0</div><div class="stat-l">GPA at ASU</div></div>
+      <div><div class="stat-n">LSS</div><div class="stat-l">Green Belt</div></div>
     </div>
   </div>
 </section>
