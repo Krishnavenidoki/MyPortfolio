@@ -130,6 +130,18 @@
       background: linear-gradient(135deg, var(--accent), var(--accent2));
       -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
     }
+    .avail-badge {
+      display: inline-flex; align-items: center; gap: .45rem;
+      background: transparent; border: none; color: #15803D;
+      font-size: .8rem; font-weight: 600; letter-spacing: .03em;
+      padding: .35rem .85rem; border-radius: 50px; margin-bottom: 1.25rem;
+    }
+    .avail-dot {
+      width: 7px; height: 7px; border-radius: 50%; background: #22C55E;
+      box-shadow: 0 0 0 3px rgba(34,197,94,.25);
+      animation: pulse-green 2s ease-in-out infinite;
+    }
+    @keyframes pulse-green { 0%,100%{box-shadow:0 0 0 3px rgba(34,197,94,.25)} 50%{box-shadow:0 0 0 6px rgba(34,197,94,.1)} }
     .hero-role { font-size: 1rem; font-weight: 600; color: var(--text); margin-bottom: .75rem; }
     .hero-desc { font-size: .9375rem; color: var(--muted); line-height: 1.75; margin-bottom: 2rem; }
     .hero-acts { display: flex; gap: .75rem; flex-wrap: wrap; }
@@ -560,6 +572,7 @@
       <div id="hnBot">Doki</div>
     </div>
     <div class="hero-right">
+      <div class="avail-badge"><span class="avail-dot"></span>Available to work</div>
       <p class="hero-role">Operations &amp; Project Management Professional</p>
       <p class="hero-desc">Bridging engineering precision with strategic business execution, turning data into decisions and complexity into clarity.</p>
       <div class="hero-acts">
@@ -595,8 +608,8 @@
         <div class="label">About Me</div>
         <h2 class="sh">From Circuits<br>to Strategy</h2>
         <p>
-          My journey began in the labs of <strong>SIES Graduate School of Technology, Mumbai</strong>,
-          where I earned a Bachelor's in <strong>Electronics and Telecommunications Engineering</strong>.
+          My journey began in <strong>SIES Graduate School of Technology, Mumbai</strong>, where I
+          earned a Bachelor's in <strong>Electronics and Telecommunications Engineering</strong>.
           Four years of signal processing, IoT design, and hardware projects built a rigorous,
           systems-thinking mindset.
         </p>
@@ -604,8 +617,8 @@
           That foundation led me to <strong>Arizona State University</strong>, where I earned my
           Master's in <strong>Engineering Management</strong> with a 4.0 GPA. I now combine
           engineering precision with data analytics and project management to drive operational
-          excellence — targeting roles in Operations Analysis, Project Coordination, and
-          Strategy and Operations.
+          excellence, targeting roles in <strong>Operations Analysis</strong>, <strong>Project Coordination</strong>,
+          and <strong>Strategy and Operations</strong>.
         </p>
 
         <div class="fun-facts">
@@ -615,7 +628,7 @@
             <div class="ff"><span class="ff-icon">📊</span>Data visualization nerd, 5+ Tableau dashboards built</div>
             <div class="ff"><span class="ff-icon">🌏</span>Mumbai to Tempe, bridging two worlds and cultures</div>
             <div class="ff"><span class="ff-icon">🔧</span>Equal parts engineer and business strategist</div>
-            <div class="ff"><span class="ff-icon">🌵</span>Active member of Women in TEM at ASU</div>
+            <div class="ff"><span class="ff-icon">☕</span>Firm believer that every problem has a data-driven solution</div>
             <div class="ff"><span class="ff-icon">📚</span>Always chasing the next certification or course</div>
           </div>
         </div>
