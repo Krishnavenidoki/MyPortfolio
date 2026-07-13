@@ -49,11 +49,11 @@
     }
     .nav-links a:hover, .nav-links a.active { color: var(--accent); }
     .nav-cta {
-      background: var(--accent) !important; color: #fff !important;
+      background: #0F0F1A !important; color: #fff !important;
       padding: .45rem 1.2rem; border-radius: 50px;
       font-size: .8125rem !important; font-weight: 600 !important;
     }
-    .nav-cta:hover { background: var(--accent2) !important; }
+    .nav-cta:hover { background: #000 !important; }
     .ham { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; }
     .ham span { display: block; width: 24px; height: 2px; background: var(--text); border-radius: 2px; transition: all .3s; }
 
@@ -81,10 +81,10 @@
       padding: .85rem 1.9rem; border-radius: 50px; font-weight: 600;
       font-size: .9375rem; text-decoration: none; transition: all .2s; border: none; cursor: pointer;
     }
-    .btn-p { background: var(--accent); color: #fff; }
-    .btn-p:hover { background: var(--accent2); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(79,70,229,.35); }
-    .btn-s { background: #fff; color: var(--text); border: 1.5px solid var(--border); }
-    .btn-s:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-2px); box-shadow: var(--sh); }
+    .btn-p { background: #0F0F1A; color: #fff; }
+    .btn-p:hover { background: #000; transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,.25); }
+    .btn-s { background: #fff; color: var(--text); border: 1.5px solid var(--text); }
+    .btn-s:hover { background: var(--text); color: #fff; transform: translateY(-2px); box-shadow: var(--sh); }
 
     /* HERO */
     #hero {
@@ -107,34 +107,15 @@
       filter: blur(56px);
     }
     .hero-wrap {
-      width: 100%; max-width: 1300px; margin: 0 auto;
-      display: grid; grid-template-columns: 1.2fr 1fr;
-      grid-template-rows: 1fr auto; gap: 0 4rem;
+      width: 100%; max-width: 860px; margin: 0 auto;
+      display: flex; flex-direction: column; align-items: center; text-align: center;
       position: relative; z-index: 1;
-    }
-    .hero-left {
-      display: flex; flex-direction: column;
-      justify-content: center; gap: .1rem;
-      padding: 2rem 0;
-    }
-    .hero-right {
-      display: flex; flex-direction: column; justify-content: center;
-      padding: 2rem 0 2rem 4rem; border-left: 1px solid var(--border);
-    }
-    #hnTop, #hnBot {
-      font-family: 'DM Sans', sans-serif; font-size: clamp(2.9rem,7.5vw,8rem);
-      font-weight: 800; line-height: 0.93; letter-spacing: -.03em; display: block;
-      color: var(--text);
-    }
-    #hnBot {
-      background: linear-gradient(135deg, var(--accent), var(--accent2));
-      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
     }
     .avail-badge {
       display: inline-flex; align-items: center; gap: .45rem;
       background: transparent; border: none; color: #15803D;
       font-size: .8rem; font-weight: 600; letter-spacing: .03em;
-      padding: .35rem .85rem; border-radius: 50px; margin-bottom: 1.25rem;
+      padding: .35rem .85rem; border-radius: 50px; margin-bottom: 1.5rem;
     }
     .avail-dot {
       width: 7px; height: 7px; border-radius: 50%; background: #22C55E;
@@ -142,41 +123,29 @@
       animation: pulse-green 2s ease-in-out infinite;
     }
     @keyframes pulse-green { 0%,100%{box-shadow:0 0 0 3px rgba(34,197,94,.25)} 50%{box-shadow:0 0 0 6px rgba(34,197,94,.1)} }
-    .hero-role { font-size: 1rem; font-weight: 600; color: var(--text); margin-bottom: .75rem; }
-    .hero-desc { font-size: .9375rem; color: var(--muted); line-height: 1.75; margin-bottom: 2rem; }
-    .hero-acts { display: flex; gap: .75rem; flex-wrap: wrap; }
+
+    .hero-h {
+      font-family: 'DM Sans', sans-serif; font-weight: 800;
+      font-size: clamp(2.5rem,6vw,4.75rem); line-height: 1.1; letter-spacing: -.02em;
+      margin-bottom: 1.5rem;
+    }
+    .hero-h-line { display: block; color: var(--text); }
+    .hero-h-accent {
+      font-style: italic; font-weight: 700;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+    }
+    .hero-desc { font-size: 1.0625rem; color: var(--muted); line-height: 1.75; max-width: 560px; margin: 0 auto 2.25rem; }
+    .hero-acts { display: flex; gap: .85rem; flex-wrap: wrap; justify-content: center; }
+
     .hero-stats {
-      grid-column: 1 / -1; display: flex; justify-content: center; gap: 0;
-      border-top: 1px solid var(--border); padding-top: 2rem; margin-top: 5rem;
+      display: flex; justify-content: center; gap: 0; width: 100%;
+      border-top: 1px solid var(--border); padding-top: 2rem; margin-top: 4rem;
     }
     .hero-stats > div { padding: 0 2.5rem; border-right: 1px solid var(--border); text-align: center; }
     .hero-stats > div:last-child { border-right: none; }
     .stat-n { font-size: 1.6rem; font-weight: 900; color: var(--text); line-height: 1; letter-spacing: -.04em; }
     .stat-l { font-size: .8rem; color: var(--muted); margin-top: .25rem; }
-
-    /* avatar */
-    .av-wrap { display: flex; justify-content: center; align-items: center; position: relative; }
-    .av-ring {
-      width: 340px; height: 340px; border-radius: 50%;
-      background: linear-gradient(135deg, var(--accent), var(--accent2));
-      padding: 5px; box-shadow: 0 20px 60px rgba(79,70,229,.25);
-      animation: float 6s ease-in-out infinite; flex-shrink: 0;
-    }
-    @keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-13px)} }
-    .av-inner {
-      width: 100%; height: 100%; border-radius: 50%; overflow: hidden;
-      background: linear-gradient(135deg,#EEF2FF,#F5F3FF);
-    }
-    .av-photo { width: 100%; height: 100%; object-fit: cover; object-position: center top; border-radius: 50%; display: block; }
-    .badge {
-      position: absolute; background: #fff; border-radius: 12px; padding: .7rem 1rem;
-      box-shadow: var(--sh-lg); display: flex; align-items: center; gap: .6rem;
-      font-size: .8125rem; font-weight: 600; color: var(--text); white-space: nowrap;
-    }
-    .badge-icon { width: 30px; height: 30px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: .95rem; }
-    .badge-tl { top: 18px; left: -28px; animation: bfl 5s ease-in-out infinite; }
-    .badge-br { bottom: 28px; right: -28px; animation: bfl 5s ease-in-out 1.5s infinite; }
-    @keyframes bfl { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-8px)} }
 
     /* ABOUT */
     #about { background: var(--bg-alt); }
@@ -498,14 +467,8 @@
     }
     @media (max-width: 768px) {
       section { padding: 4rem 1.25rem; }
-      .hero-wrap { grid-template-columns: 1fr; gap: 2rem 0; }
-      .hero-left { padding: 1.5rem 0 0; }
-      .hero-right { border-left: none; padding: 0; }
-      #hnTop, #hnBot { font-size: clamp(2.5rem,14vw,5rem); }
-      .hero-stats { flex-wrap: wrap; margin-top: 1.25rem; padding-top: 1.25rem; }
+      .hero-stats { flex-wrap: wrap; margin-top: 2.5rem; padding-top: 1.25rem; }
       .hero-stats > div { flex: 1 1 40%; border-right: none; padding: .4rem 0; }
-      .av-ring { width: 240px; height: 240px; }
-      .badge-tl { left: 0; } .badge-br { right: 0; }
       .about-g { grid-template-columns: 1fr; gap: 2.5rem; }
       .about-photo-frame { max-width: 100%; aspect-ratio: 4/3; }
       .about-photo-badge { bottom: -12px; right: 12px; }
@@ -567,18 +530,16 @@
   <div class="hero-glow hero-glow-1" id="hg1"></div>
   <div class="hero-glow hero-glow-2" id="hg2"></div>
   <div class="hero-wrap">
-    <div class="hero-left">
-      <div id="hnTop">Krishnaveni</div>
-      <div id="hnBot">Doki</div>
-    </div>
-    <div class="hero-right">
-      <div class="avail-badge"><span class="avail-dot"></span>Available to work</div>
-      <p class="hero-role">Operations &amp; Project Management Professional</p>
-      <p class="hero-desc">Bridging engineering precision with strategic business execution, turning data into decisions and complexity into clarity.</p>
-      <div class="hero-acts">
-        <a href="Krishnaveni%20Doki%20-%20Resume.pdf" download class="btn btn-p">↓ Download Resume</a>
-        <a href="#contact" class="btn btn-s">Let's Connect →</a>
-      </div>
+    <div class="avail-badge"><span class="avail-dot"></span>Available to work</div>
+    <h1 class="hero-h">
+      <span class="hero-h-line">I Build</span>
+      <span class="hero-h-line hero-h-accent">Data-Driven Strategy</span>
+      <span class="hero-h-line">That Moves Business Forward.</span>
+    </h1>
+    <p class="hero-desc">Bridging engineering precision with strategic business execution, turning data into decisions and complexity into clarity.</p>
+    <div class="hero-acts">
+      <a href="Krishnaveni%20Doki%20(Resume).pdf" target="_blank" rel="noopener" class="btn btn-p">View Resume ↗</a>
+      <a href="#contact" class="btn btn-s">Let's Connect →</a>
     </div>
     <div class="hero-stats">
       <div><div class="stat-n" data-count="3" data-suffix="+">3+</div><div class="stat-l">Years Experience</div></div>
@@ -608,7 +569,7 @@
         <div class="label">About Me</div>
         <h2 class="sh">From Circuits<br>to Strategy</h2>
         <p>
-          My journey began in <strong>SIES Graduate School of Technology, Mumbai</strong>, where I
+          I'm <strong>Krishnaveni Doki</strong>. My journey began in <strong>SIES Graduate School of Technology, Mumbai</strong>, where I
           earned a Bachelor's in <strong>Electronics and Telecommunications Engineering</strong>.
           Four years of signal processing, IoT design, and hardware projects built a rigorous,
           systems-thinking mindset.
@@ -684,56 +645,56 @@
 
       <div class="tl-item fi">
         <div class="tl-empty"></div>
-        <div class="tl-dot"><div class="dot">💼</div></div>
-        <div class="tl-card">
-          <div class="tl-yr">May – Aug 2022</div>
-          <h3>Project Assistant</h3>
-          <div class="tl-org">Exposys Data Labs, Bangalore</div>
-          <p>Coordinated end-to-end IT project delivery for a client-facing web application using Confluence and Microsoft Project. Delivered on schedule to 4+ stakeholders.</p>
-        </div>
-      </div>
-
-      <div class="tl-item fi">
+        <div class="tl-dot"><div class="dot">🚀</div></div>
         <div class="tl-card">
           <div class="tl-yr">Sept – Dec 2022</div>
           <h3>Program Lead, IEEE TENSYMP 2022</h3>
           <div class="tl-org">IEEE Bombay Section, Mumbai</div>
           <p>Managed full program lifecycle for a global technical symposium. Coordinated 10+ evaluators and 32+ international participants with 100% on-time milestone delivery.</p>
         </div>
-        <div class="tl-dot"><div class="dot">🚀</div></div>
-        <div class="tl-empty"></div>
       </div>
 
       <div class="tl-item fi">
-        <div class="tl-empty"></div>
-        <div class="tl-dot"><div class="dot">📡</div></div>
         <div class="tl-card">
           <div class="tl-yr">July 2023 – July 2024</div>
           <h3>Assistant Manager</h3>
           <div class="tl-org">Reliance Jio, Mumbai, India</div>
           <p>Built centralized IT workflows for 82+ enterprise clients using SQL, JIRA, and SAP GRC, improving SLA compliance to 87%. Automated SAP CRM operations via Python.</p>
         </div>
+        <div class="tl-dot"><div class="dot">📡</div></div>
+        <div class="tl-empty"></div>
       </div>
 
       <div class="tl-item fi">
+        <div class="tl-empty"></div>
+        <div class="tl-dot"><div class="dot">🌵</div></div>
         <div class="tl-card">
           <div class="tl-yr">Aug 2024 – May 2026</div>
           <h3>Master of Science, Engineering Management</h3>
           <div class="tl-org">Arizona State University, Tempe, AZ</div>
           <p>Graduated with a 4.0 GPA. Specialized in operations, ERP systems, data analytics, and technology strategy. Teaching Assistant for project management and enterprise planning courses.</p>
         </div>
-        <div class="tl-dot"><div class="dot">🌵</div></div>
-        <div class="tl-empty"></div>
       </div>
 
       <div class="tl-item fi">
-        <div class="tl-empty"></div>
-        <div class="tl-dot"><div class="dot">🎓</div></div>
         <div class="tl-card">
           <div class="tl-yr">Aug 2025 – May 2026</div>
           <h3>Teaching Assistant</h3>
           <div class="tl-org">Arizona State University, Tempe, AZ</div>
           <p>Managed project tracking and milestone scheduling across 137 IT project management reports. Developed structured feedback protocols for 178 concurrent student projects, ensuring consistent quality and on-schedule delivery.</p>
+        </div>
+        <div class="tl-dot"><div class="dot">🎓</div></div>
+        <div class="tl-empty"></div>
+      </div>
+
+      <div class="tl-item fi">
+        <div class="tl-empty"></div>
+        <div class="tl-dot"><div class="dot">🌳</div></div>
+        <div class="tl-card">
+          <div class="tl-yr">July 2026 – Present</div>
+          <h3>Project Manager</h3>
+          <div class="tl-org">Trinity Tree, LLC, Remote</div>
+          <p>Managing daily check-ins and deliverable tracking for a 3-person intern team at a clinical mental health practice, using Trello and Asana with KPI monitoring to catch bottlenecks early.</p>
         </div>
       </div>
 
@@ -804,6 +765,25 @@
     <div class="exp-list">
 
       <div class="exp-card fi">
+        <div class="exp-logo">🌳</div>
+        <div>
+          <div class="exp-top">
+            <div class="exp-title">Project Manager</div>
+            <div class="exp-period">July 2026 – Present</div>
+          </div>
+          <div class="exp-co">Trinity Tree, LLC, Remote</div>
+          <ul class="exp-ul">
+            <li>Manage daily check-ins and deliverable tracking for a 3-person intern team at a clinical mental health practice, using Trello and Asana with KPI monitoring to catch bottlenecks early.</li>
+            <li>Coordinate cross-functional priorities among operational teams and deliver daily progress updates to leadership, strengthening stakeholder communication and structured progress reporting.</li>
+          </ul>
+          <div class="exp-ts">
+            <span class="tag">Program Management</span><span class="tag">Stakeholder Communication</span>
+            <span class="tag g">Trello</span><span class="tag g">Asana</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="exp-card fi">
         <div class="exp-logo">🎓</div>
         <div>
           <div class="exp-top">
@@ -860,24 +840,6 @@
         </div>
       </div>
 
-      <div class="exp-card fi">
-        <div class="exp-logo">💻</div>
-        <div>
-          <div class="exp-top">
-            <div class="exp-title">Project Assistant</div>
-            <div class="exp-period">May – Aug 2022</div>
-          </div>
-          <div class="exp-co">Exposys Data Labs, Bangalore, India</div>
-          <ul class="exp-ul">
-            <li>Coordinated end-to-end IT project planning and delivery for a client-facing web application in a 5-member cross-functional team using Confluence and Microsoft Project, delivering on schedule to 4+ stakeholders.</li>
-          </ul>
-          <div class="exp-ts">
-            <span class="tag g">Confluence</span><span class="tag g">Microsoft Project</span>
-            <span class="tag">Requirements Tracking</span><span class="tag">Risk Management</span>
-          </div>
-        </div>
-      </div>
-
     </div>
   </div>
 </section>
@@ -898,6 +860,30 @@
       <button class="fbtn" onclick="fp('engineering',this)">Engineering</button>
     </div>
     <div class="proj-g" id="proj-g">
+
+      <!-- Inventory Management System -->
+      <div class="pc fi" data-cat="engineering analytics">
+        <div class="pc-thumb" style="background:linear-gradient(135deg,#4F46E5,#0EA5E9)">
+          <div class="pc-thumb-icon">📦</div>
+          <div class="pc-thumb-label">Inventory System</div>
+          <svg class="pc-line-chart" viewBox="0 0 300 100" preserveAspectRatio="none">
+            <polyline points="0,80 40,55 80,65 120,35 160,45 200,20 240,30 300,10"/>
+          </svg>
+        </div>
+        <div class="pc-top"><span class="pc-cat">Engineering · Analytics</span><span class="pc-yr">July 2026</span></div>
+        <div class="pc-body">
+          <h3>Inventory Management System</h3>
+          <p>Full-stack inventory control system with stock tracking, audit transaction history, and reorder alerts, backed by a live analytics dashboard with 5 KPIs built using Python, Chart.js, and SQL-driven data aggregation. Directed AI-assisted development (Claude Code) against evolving specs.</p>
+          <div class="pc-metrics">
+            <div class="met"><div class="met-dot"></div><span>KPIs Tracked:</span><span> 5</span></div>
+            <div class="met"><div class="met-dot"></div><span>Stack:</span><span> Python + SQL</span></div>
+          </div>
+        </div>
+        <div class="pc-foot">
+          <div class="tech-row"><span class="tb">Python</span><span class="tb">SQL</span><span class="tb">Chart.js</span><span class="tb">Claude Code</span></div>
+          <span class="pl-na">Personal Project</span>
+        </div>
+      </div>
 
       <!-- MegaMart -->
       <div class="pc fi" data-cat="tableau analytics">
@@ -1122,7 +1108,7 @@
           <div class="cert-progress">In Progress</div>
           <div class="cert-iss">Udemy · Project Management</div>
           <div class="cert-name">CAPM Certification Training &amp; Exam Prep</div>
-          <div class="cert-dt">PMI Certified Associate in Project Management · 2025–Present</div>
+          <div class="cert-dt">PMI Certified Associate in Project Management · 2026–Present</div>
         </div>
       </div>
 
@@ -1275,9 +1261,9 @@
             <div class="con-link-ic">💼</div>
             <div class="con-link-t"><strong>LinkedIn</strong><span>linkedin.com/in/krishnavenidoki</span></div>
           </a>
-          <a href="Krishnaveni%20Doki%20-%20Resume.pdf" download class="con-link">
+          <a href="Krishnaveni%20Doki%20(Resume).pdf" target="_blank" rel="noopener" class="con-link">
             <div class="con-link-ic">📄</div>
-            <div class="con-link-t"><strong>Resume</strong><span>Download PDF</span></div>
+            <div class="con-link-t"><strong>Resume</strong><span>View PDF</span></div>
           </a>
         </div>
       </div>
